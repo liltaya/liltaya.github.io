@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taisiia (Taya) Mamenko · Software Engineering Student</title>
+<meta name="description" content="Taisiia (Taya) Mamenko, Engineering Science student at SFU. Python, modern C++ and Qt6 tools with tests and CI. Available for a full-time co-op May to December 2027.">
+<meta name="author" content="Taisiia Mamenko">
+<link rel="canonical" href="https://liltaya.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1.5' y='1.5' width='29' height='29' fill='%23EDF1F0' stroke='%2314223A' stroke-width='3'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='13' fill='%2314223A'%3ETM%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#EDF1F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B2036" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liltaya.github.io/">
+<meta property="og:title" content="Taisiia (Taya) Mamenko · Software Engineering Student">
+<meta property="og:description" content="Taisiia (Taya) Mamenko, Engineering Science student at SFU. Python, modern C++ and Qt6 tools with tests and CI. Available for a full-time co-op May to December 2027.">
+<meta property="og:image" content="https://liltaya.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>html{padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=B612+Mono:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one engineering drawing sheet. The hero is the sheet itself (thesis, Fig. 1, general notes, title block),
+   each project is a lettered detail, and the career path is the sheet's revision table, cross-referenced to the details. */
+:root{
+  --paper:#EDF1F0;
+  --surface:#F8FAF9;
+  --ink:#14223A;
+  --ink-2:#4B5B70;
+  --line:#C3CFD5;
+  --line-strong:#14223A;
+  --grid-minor:rgba(20,34,58,.045);
+  --grid-major:rgba(20,34,58,.085);
+  --accent:#1E48C8;
+  --accent-soft:rgba(30,72,200,.09);
+  --redline:#BF3328;
+  --on-ink:#EDF1F0;
+  --shot-bg:#2A2A2A;
+  --overlay-bg:rgba(8,16,28,.72);
+  --overlay-fg:#FFFFFF;
+
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"B612 Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --maxw:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B2036; --surface:#0F2843; --ink:#E3EDF6; --ink-2:#A2B6CA; --line:#294869; --line-strong:#9EC2E4;
+    --grid-minor:rgba(170,210,245,.05); --grid-major:rgba(170,210,245,.10);
+    --accent:#8EC5FF; --accent-soft:rgba(142,197,255,.12); --redline:#FF8E7E; --on-ink:#0B2036;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B2036; --surface:#0F2843; --ink:#E3EDF6; --ink-2:#A2B6CA; --line:#294869; --line-strong:#9EC2E4;
+  --grid-minor:rgba(170,210,245,.05); --grid-major:rgba(170,210,245,.10);
+  --accent:#8EC5FF; --accent-soft:rgba(142,197,255,.12); --redline:#FF8E7E; --on-ink:#0B2036;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+img,video{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:16px;top:16px;z-index:20;background:var(--ink);color:var(--on-ink);padding:8px 12px}
+.label{font-family:var(--f-mono);font-size:11.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:0}
+
+/* Top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.topbar-in{display:flex;align-items:center;gap:20px;min-height:60px}
+.mark{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+.mark-box{display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--ink);font-weight:700;font-size:11.5px;letter-spacing:.02em}
+.nav{margin-left:auto;display:flex;gap:24px}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:15px}
+.nav a:hover{color:var(--ink)}
+@media (max-width:620px){.mark-name{display:none}.nav{gap:14px}.nav a{font-size:14px}}
+@media (max-width:400px){.nav a.opt{display:none}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;background:var(--ink);color:var(--on-ink);border:1.5px solid var(--ink);border-radius:2px;font:600 15px/1 var(--f-body);text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--on-ink)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-small{min-height:36px;padding:0 14px;font-size:14px}
+
+/* Sheet (hero) */
+.sheet-band{padding-block:28px 0}
+.sheet{position:relative;border:1.5px solid var(--line-strong);background-color:var(--surface);
+  background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,16px 16px,16px 16px;
+  padding:clamp(22px,4.5vw,56px)}
+.sheet::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(28px,4.5vw,64px);align-items:center}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+h1{font-family:var(--f-display);font-stretch:114%;font-weight:800;font-size:clamp(44px,6.3vw,86px);line-height:.9;letter-spacing:-.012em;margin:0;text-wrap:balance}
+.aka{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;color:var(--ink-2);margin:16px 0 0}
+.lead{font-size:clamp(18px,1.7vw,20.5px);line-height:1.55;max-width:33em;margin:22px 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+.fig{margin:0;min-width:0}
+.fig-crop{position:relative;padding:12px;
+  background:
+    linear-gradient(var(--ink),var(--ink)) left top/20px 1.5px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) left top/1.5px 20px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right top/20px 1.5px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right top/1.5px 20px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) left bottom/20px 1.5px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) left bottom/1.5px 20px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right bottom/20px 1.5px no-repeat,
+    linear-gradient(var(--ink),var(--ink)) right bottom/1.5px 20px no-repeat}
+.fig-frame{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--shot-bg);overflow:hidden}
+.fig-frame video{display:block;width:100%;height:100%;object-fit:cover}
+.fig-toggle{position:absolute;right:10px;bottom:10px;background:var(--overlay-bg);color:var(--overlay-fg);border:1px solid rgba(255,255,255,.35);border-radius:2px;padding:6px 10px;font:700 10.5px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.fig-toggle:hover{background:rgba(8,16,28,.9)}
+figcaption{margin-top:12px;font-size:14.5px;line-height:1.5;color:var(--ink-2);max-width:36em}
+.fig-no{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:8px}
+
+.sheet-foot{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr);gap:clamp(22px,3.5vw,44px);margin-top:clamp(32px,4.5vw,52px);align-items:end}
+.notes ol{margin:10px 0 0;padding-left:1.5em;font-size:15px;line-height:1.5;color:var(--ink-2);display:grid;gap:6px}
+.notes li::marker{font-family:var(--f-mono);font-size:12.5px;color:var(--accent)}
+.titleblock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5px;background:var(--line-strong);border:1.5px solid var(--line-strong);margin:0}
+.tb-cell{background:var(--surface);padding:10px 12px 11px;min-width:0}
+.tb-cell dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.tb-cell dd{margin:5px 0 0;font-size:15px;line-height:1.3;font-weight:600}
+.tb-wide{grid-column:span 2}
+.tb-key dd{color:var(--accent)}
+.tb-num{font-family:var(--f-display);font-stretch:112%;font-weight:750;font-size:22px !important;line-height:1.05 !important;font-variant-numeric:tabular-nums}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .sheet-foot{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .titleblock{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* Sections */
+.section{padding-block:clamp(64px,8vw,108px) 0}
+.section-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-bottom:14px;border-bottom:1.5px solid var(--line-strong)}
+h2{font-family:var(--f-display);font-stretch:114%;font-weight:760;font-size:clamp(32px,4.2vw,46px);line-height:1.04;letter-spacing:-.006em;margin:0;text-wrap:balance}
+.section-note{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--ink-2);margin:0}
+
+/* Projects */
+.project{display:grid;grid-template-columns:210px minmax(0,1fr);gap:clamp(20px,4.5vw,64px);padding-block:clamp(36px,4.5vw,56px);border-bottom:1px solid var(--line)}
+.p-meta{display:flex;flex-direction:column;align-items:flex-start;gap:9px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2);align-self:start;position:sticky;top:84px}
+.p-detail{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:11.5px}
+.p-detail b{display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--ink);border-radius:50%;font-size:13px;letter-spacing:0}
+.p-meta p{margin:0}
+.status{display:inline-block;padding:3px 8px 2px;border:1px solid currentColor;border-radius:2px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
+.status-live{color:var(--redline)}
+.status-done{color:var(--accent)}
+.stack{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.stack li{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:2px 7px;font-size:11.5px;border-radius:2px}
+.p-body{min-width:0}
+h3{font-family:var(--f-display);font-stretch:110%;font-weight:720;font-size:clamp(25px,2.7vw,32px);line-height:1.12;margin:0;text-wrap:balance}
+.p-sum{font-size:18.5px;line-height:1.55;margin:10px 0 0;max-width:38em}
+.p-points{margin:16px 0 0;padding-left:1.15em;color:var(--ink-2);max-width:42em;display:grid;gap:7px}
+.p-points li::marker{color:var(--accent)}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:26px;border-top:1px solid var(--line)}
+.m{padding:14px 16px 0 0;min-width:0}
+.m+.m{padding-left:16px;border-left:1px solid var(--line)}
+.m-n{display:block;font-family:var(--f-display);font-stretch:112%;font-weight:760;font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
+.m-l{display:block;font-size:13.5px;line-height:1.35;color:var(--ink-2);margin-top:7px}
+.visual{margin-top:26px}
+.p-link{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-weight:600;color:var(--accent);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
+.p-link:hover{color:var(--ink)}
+
+/* BuildScope endpoints */
+.spec{border:1px solid var(--line-strong);background:var(--surface);overflow-x:auto}
+.spec-row{display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr);gap:4px 20px;padding:10px 14px;border-top:1px solid var(--line);align-items:baseline}
+.spec-row:first-child{border-top:0}
+.spec code{font-family:var(--f-mono);font-size:13px;color:var(--ink);white-space:nowrap}
+.verb{display:inline-block;min-width:46px;font-weight:700;color:var(--accent)}
+.spec-row span{font-size:14.5px;color:var(--ink-2)}
+@media (max-width:620px){.spec-row{grid-template-columns:minmax(0,1fr)}}
+
+/* Dashboard screenshots */
+.shot-tabs{display:inline-grid;grid-auto-flow:column;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);max-width:100%;margin-bottom:10px}
+.shot-tabs button{appearance:none;border:0;background:var(--surface);color:var(--ink);font:400 12px/1.2 var(--f-mono);letter-spacing:.04em;padding:9px 12px;cursor:pointer}
+@media (max-width:560px){.shot-tabs{display:grid;grid-auto-flow:row;grid-template-columns:1fr 1fr;width:100%}}
+.shot-tabs button[aria-selected="true"]{background:var(--ink);color:var(--on-ink)}
+.shot-frame{border:1px solid var(--line-strong);background:var(--shot-bg);aspect-ratio:1800/743;max-width:100%}
+.shot-frame img{display:block;width:100%;height:auto}
+.shot-cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;margin-top:8px;font-size:13.5px;color:var(--ink-2)}
+.shot-cap a{color:var(--accent)}
+
+/* Flask flow */
+.flow{display:grid;gap:10px;font-family:var(--f-mono);font-size:12.5px}
+.flow-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.flow-tag{width:100%;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.node{display:inline-flex;flex-direction:column;gap:2px;border:1px solid var(--line-strong);background:var(--surface);padding:7px 11px;color:var(--ink)}
+.node small{font-size:10.5px;color:var(--ink-2)}
+.node-key{border-width:1.5px;background:var(--accent-soft)}
+.arr{color:var(--ink-2)}
+
+/* Virus.exe */
+.systems{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.sys{border:1.5px solid var(--line-strong);background:var(--surface);padding:14px 10px;text-align:center;font-family:var(--f-mono);font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);position:relative;min-width:0;overflow:hidden}
+.sys.down{color:var(--redline);border-color:var(--redline);background:repeating-linear-gradient(135deg,transparent 0 7px,var(--accent-soft) 7px 8px),var(--surface)}
+.sys.down::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--redline) calc(50% - 1px),var(--redline) calc(50% + .5px),transparent calc(50% + .5px));opacity:.4}
+.sys-cap{margin:8px 0 0;font-size:13.5px;color:var(--ink-2)}
+.classes{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center;font-size:13.5px;color:var(--ink-2)}
+.classes code{font-family:var(--f-mono);font-size:12px;color:var(--ink);border:1px solid var(--line);background:var(--surface);padding:2px 7px}
+@media (max-width:460px){.systems{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Robot */
+.kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0}
+.kv div{background:var(--surface);padding:10px 12px;min-width:0}
+.kv dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.kv dd{margin:4px 0 0;font-weight:600;font-size:15px}
+@media (max-width:620px){.kv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+@media (max-width:820px){
+  .project{grid-template-columns:minmax(0,1fr)}
+  .p-meta{position:static;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 12px}
+  .p-meta .p-detail{width:100%}
+  .stack{width:100%;margin-top:0}
+}
+@media (max-width:520px){
+  .m-n{font-size:25px}
+  .m{padding-right:10px}
+  .m+.m{padding-left:10px}
+  .m-l{font-size:12.5px}
+}
+
+/* Path: revision table */
+.origin{display:grid;grid-template-columns:210px minmax(0,1fr);gap:clamp(20px,4.5vw,64px);padding-block:28px}
+.origin p{margin:0;max-width:42em}
+.rev-wrap{border:1.5px solid var(--line-strong);background:var(--surface)}
+table.rev{width:100%;border-collapse:collapse;font-size:15.5px;line-height:1.5}
+.rev th{font-family:var(--f-mono);font-size:10.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-align:left;color:var(--ink-2);padding:10px 16px;border-bottom:1.5px solid var(--line-strong)}
+.rev td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}
+.rev tbody tr:first-child td{border-top:0}
+.rev .r-rev{font-family:var(--f-mono);font-weight:700;width:64px}
+.rev .r-date{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2);white-space:nowrap;width:170px;padding-top:15px}
+.rev .r-ref{font-family:var(--f-mono);font-size:12px;white-space:nowrap;width:110px;padding-top:15px;text-align:right}
+.rev .r-ref a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.rev tr.next td{border-top:1px dashed var(--redline)}
+.rev tr.next .r-rev,.rev tr.next .r-desc strong{color:var(--redline)}
+@media (max-width:700px){
+  .origin{grid-template-columns:minmax(0,1fr);gap:8px}
+  .rev thead{display:none}
+  .rev,.rev tbody{display:block}
+  .rev tr{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:2px 10px;padding:12px 14px;border-top:1px solid var(--line);align-items:baseline}
+  .rev .r-rev{grid-column:1;grid-row:1}
+  .rev .r-date{grid-column:2;grid-row:1}
+  .rev .r-ref{grid-column:3;grid-row:1;text-align:right}
+  .rev tbody tr:first-child{border-top:0}
+  .rev tr.next{border-top:1px dashed var(--redline)}
+  .rev td{display:block;padding:0;border:0 !important;width:auto}
+  .rev .r-desc{grid-column:1/-1;grid-row:2;margin-top:4px}
+  .rev .r-date,.rev .r-ref{padding-top:1px}
+}
+
+/* Toolkit */
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);margin:0}
+.tool{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 18px;padding-block:16px;border-bottom:1px solid var(--line)}
+.tool dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);padding-top:3px}
+.tool dd{margin:0;font-size:15.5px;line-height:1.5}
+@media (max-width:860px){.tools{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.tool{grid-template-columns:minmax(0,1fr)}}
+
+/* Contact */
+.contact-card{border:1.5px solid var(--line-strong);background:var(--surface);padding:clamp(24px,5vw,60px);display:grid;gap:18px;position:relative}
+.contact-card::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
+.contact-card>*{position:relative}
+.contact-card h2{font-size:clamp(32px,5vw,56px);max-width:15ch}
+.contact-card p.blurb{margin:0;max-width:36em;font-size:18px}
+.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:6px}
+.email{font-family:var(--f-display);font-stretch:110%;font-weight:720;font-size:clamp(26px,4vw,42px);line-height:1.1;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}
+.email:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.copy-status{font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+.links{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+
+.foot{margin-top:clamp(64px,8vw,104px);border-top:1.5px solid var(--line-strong)}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:20px 28px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#work">Skip to projects</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="mark" href="#top" aria-label="Taisiia Mamenko, back to top"><span class="mark-box" aria-hidden="true">TM</span><span class="mark-name">Taisiia Mamenko</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#path" class="opt">Path</a>
+      <a href="#toolkit" class="opt">Toolkit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-small" href="assets/Taisiia_Mamenko_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="sheet-band" aria-label="Introduction">
+    <div class="wrap">
+      <div class="sheet">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Software engineering student · Python · C++ · Qt6</p>
+            <h1>Taisiia<br>Mamenko</h1>
+            <p class="aka">Goes by Taya</p>
+            <p class="lead">I build tools people use: Qt6 desktop apps in modern C++, Python APIs, and data checks that catch bad records before they reach the database. Every project ships with tests and CI.</p>
+            <div class="cta">
+              <a class="btn" href="#contact">Get in touch</a>
+              <a class="btn btn-ghost" href="#work">See the work</a>
+            </div>
+          </div>
+          <figure class="fig">
+            <div class="fig-crop">
+              <div class="fig-frame">
+                <video id="robot" src="assets/stair-robot.mp4" poster="assets/stair-robot-poster.jpg" muted loop playsinline preload="metadata" aria-label="The stair-climbing robot moving its front leg linkage in the SFU engineering lab"></video>
+                <button class="fig-toggle" id="robotToggle" type="button">Play</button>
+              </div>
+            </div>
+            <figcaption><span class="fig-no">Fig. 1</span>Stair-climbing robot, ENSC 100 team project at SFU, December 2025. I helped assemble it and wrote the C++ code for its Raspberry Pi.</figcaption>
+          </figure>
+        </div>
+
+        <div class="sheet-foot">
+          <div class="notes">
+            <h2 class="label">General notes</h2>
+            <ol>
+              <li>Every project ships with automated tests and CI on Linux.</li>
+              <li>Data is validated before it reaches the database.</li>
+              <li>Architecture and data models are written down.</li>
+            </ol>
+          </div>
+          <dl class="titleblock" aria-label="Key facts">
+            <div class="tb-cell tb-wide"><dt>Program</dt><dd>BASc Engineering Science, Simon Fraser University</dd></div>
+            <div class="tb-cell"><dt>CGPA</dt><dd class="tb-num">3.87</dd></div>
+            <div class="tb-cell"><dt>Graduating</dt><dd>May 2029</dd></div>
+            <div class="tb-cell tb-wide tb-key"><dt>Available</dt><dd>Full-time co-op or internship, May to December 2027</dd></div>
+            <div class="tb-cell"><dt>Based in</dt><dd>Burnaby, BC</dd></div>
+            <div class="tb-cell"><dt>Work status</dt><dd>Authorized to work in Canada</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-h">Selected work</h2>
+        <p class="section-note">Four software projects and one robot</p>
+      </div>
+
+      <article class="project" id="buildscope" aria-labelledby="bs-h">
+        <div class="p-meta">
+          <span class="p-detail"><b>A</b>Detail A</span>
+          <p>Oct 2026</p>
+          <span class="status status-live">In progress</span>
+          <p>Solo project</p>
+          <ul class="stack" aria-label="Built with"><li>Python</li><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>SQLite</li><li>C++20</li><li>CMake</li></ul>
+        </div>
+        <div class="p-body">
+          <h3 id="bs-h">BuildScope AI</h3>
+          <p class="p-sum">A local tool for build-pipeline reliability. Register a code repository and BuildScope works out its language, build system and test framework, and shows the files behind each answer.</p>
+          <ul class="p-points">
+            <li>Layered FastAPI service (routes, Pydantic schemas, service, store, SQLAlchemy models) with typed domain errors that map to 404, 409 and 422 responses.</li>
+            <li>Path validation, unique and check constraints, and duplicate detection keep bad records out of the database.</li>
+            <li>Detects setuptools, Poetry, Hatchling, Flit and CMake builds and pytest, GoogleTest and CTest suites, and reads Git state with read-only commands. A C++20 worker library with GoogleTest CI is underway.</li>
+          </ul>
+          <div class="metrics">
+            <div class="m"><span class="m-n">70+</span><span class="m-l">pytest tests: unit, API, integration</span></div>
+            <div class="m"><span class="m-n">5</span><span class="m-l">build systems detected</span></div>
+            <div class="m"><span class="m-n">3</span><span class="m-l">test frameworks detected</span></div>
+          </div>
+          <div class="visual spec" role="list" aria-label="API endpoints">
+            <div class="spec-row" role="listitem"><code><span class="verb">POST</span>/repositories</code><span>Register a local repository</span></div>
+            <div class="spec-row" role="listitem"><code><span class="verb">GET</span>/repositories/{id}</code><span>Fetch one repository and its detected metadata</span></div>
+            <div class="spec-row" role="listitem"><code><span class="verb">POST</span>/repositories/{id}/detect</code><span>Detect language, build system and tests, with evidence</span></div>
+            <div class="spec-row" role="listitem"><code><span class="verb">GET</span>/repositories/{id}/git</code><span>Read branch, commit and HEAD state</span></div>
+          </div>
+          <a class="p-link" href="https://github.com/liltaya/buildscope-ai" target="_blank" rel="noopener">Code on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project" id="construction" aria-labelledby="cd-h">
+        <div class="p-meta">
+          <span class="p-detail"><b>B</b>Detail B</span>
+          <p>Sep to Oct 2026</p>
+          <span class="status status-done">Complete</span>
+          <p>Solo project</p>
+          <ul class="stack" aria-label="Built with"><li>C++20</li><li>Qt6</li><li>SQLite</li><li>CMake</li><li>GoogleTest</li><li>GitHub Actions</li></ul>
+        </div>
+        <div class="p-body">
+          <h3 id="cd-h">Construction Analytics Dashboard</h3>
+          <p class="p-sum">A Qt6 desktop app that turns raw construction project data into four views, so a manager can spot budget overruns and overdue work at a glance.</p>
+          <ul class="p-points">
+            <li>Project selector, live search, category and status filters, sortable tables, and a custom QPainter chart with hand-written drawing, scaling and layout math instead of a charting library.</li>
+            <li>CSV import checks headers, field counts, IDs, statuses and budgets, reports errors by row number, and wraps each import in an all-or-nothing SQLite transaction.</li>
+            <li>Layered design: UI, service, analytics, repository, and RAII-managed SQLite. Architecture and data model are documented.</li>
+          </ul>
+          <div class="metrics">
+            <div class="m"><span class="m-n">4,600</span><span class="m-l">lines of C++20, approximately</span></div>
+            <div class="m"><span class="m-n">25</span><span class="m-l">GoogleTest tests</span></div>
+            <div class="m"><span class="m-n">2</span><span class="m-l">CI jobs, one rerunning every test under ASan and UBSan</span></div>
+          </div>
+          <div class="visual shots" data-shots>
+            <div class="shot-tabs" role="tablist" aria-label="Dashboard views">
+              <button type="button" role="tab" id="tab-ov" aria-controls="shot-ov" aria-selected="true">Overview</button>
+              <button type="button" role="tab" id="tab-co" aria-controls="shot-co" aria-selected="false" tabindex="-1">Costs</button>
+              <button type="button" role="tab" id="tab-sc" aria-controls="shot-sc" aria-selected="false" tabindex="-1">Schedule</button>
+              <button type="button" role="tab" id="tab-ws" aria-controls="shot-ws" aria-selected="false" tabindex="-1">Workforce / Safety</button>
+            </div>
+            <div class="shot-frame">
+              <img id="shot-ov" role="tabpanel" aria-labelledby="tab-ov" src="assets/dash-overview.webp" width="1800" height="743" loading="lazy" alt="Overview tab: budget, actual cost, budget variance, completion, overdue tasks and labor hours, above a budget versus actual cost bar chart.">
+              <img id="shot-co" role="tabpanel" aria-labelledby="tab-co" src="assets/dash-costs.webp" width="1800" height="743" loading="lazy" hidden alt="Costs tab: cost by category chart, a search box and category filter, and a sortable table of cost entries.">
+              <img id="shot-sc" role="tabpanel" aria-labelledby="tab-sc" src="assets/dash-schedule.webp" width="1800" height="743" loading="lazy" hidden alt="Schedule tab: actual versus planned progress, task status chart, and a task table that flags overdue work.">
+              <img id="shot-ws" role="tabpanel" aria-labelledby="tab-ws" src="assets/dash-workforce-safety.webp" width="1800" height="743" loading="lazy" hidden alt="Workforce and Safety tab: recorded labor hours and a table of work logs.">
+            </div>
+            <div class="shot-cap"><span>Screenshots from the running app, sample project "Tower A".</span><a href="https://github.com/liltaya/Construction-dashboard/tree/main/docs/screenshots" target="_blank" rel="noopener">Full-size screenshots ↗</a></div>
+          </div>
+          <a class="p-link" href="https://github.com/liltaya/Construction-dashboard" target="_blank" rel="noopener">Code on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project" id="ops-platform" aria-labelledby="op-h">
+        <div class="p-meta">
+          <span class="p-detail"><b>C</b>Detail C</span>
+          <p>Jul to Aug 2026</p>
+          <span class="status status-done">Complete</span>
+          <p>Solo project</p>
+          <ul class="stack" aria-label="Built with"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>Docker</li><li>Nginx</li><li>systemd</li><li>Prometheus</li><li>Grafana</li></ul>
+        </div>
+        <div class="p-body">
+          <h3 id="op-h">Operational Data Platform and Log Analyzer</h3>
+          <p class="p-sum">A REST API deployed the way production services are, with health checks and live metrics, plus a command-line tool that reads server logs and flags trouble.</p>
+          <ul class="p-points">
+            <li>Flask, SQLAlchemy and PostgreSQL API with input validation, structured JSON errors, health checks, and Prometheus metrics feeding Grafana dashboards.</li>
+            <li>Deployed on Linux behind Nginx, run by systemd or Docker Compose, as an unprivileged user with credentials kept out of Git.</li>
+            <li>Log analyzer built with dataclasses and type hints. Reports error rates, malformed lines and suspicious requests (path traversal, SQL injection, scanners) as text, JSON or CSV.</li>
+          </ul>
+          <div class="metrics">
+            <div class="m"><span class="m-n">1M</span><span class="m-l">log records in the benchmark</span></div>
+            <div class="m"><span class="m-n">38</span><span class="m-l">pytest tests</span></div>
+            <div class="m"><span class="m-n">4</span><span class="m-l">CI jobs: Ruff, mypy, tests, coverage</span></div>
+          </div>
+          <div class="visual flow" aria-label="How a request travels, and how it is monitored">
+            <div class="flow-row"><span class="flow-tag">Request path</span><span class="node">Client</span><span class="arr" aria-hidden="true">→</span><span class="node">Nginx</span><span class="arr" aria-hidden="true">→</span><span class="node node-key">Flask API<small>systemd or Docker Compose</small></span><span class="arr" aria-hidden="true">→</span><span class="node">PostgreSQL</span></div>
+            <div class="flow-row"><span class="flow-tag">Monitoring</span><span class="node node-key">/metrics</span><span class="arr" aria-hidden="true">→</span><span class="node">Prometheus</span><span class="arr" aria-hidden="true">→</span><span class="node">Grafana</span></div>
+          </div>
+          <a class="p-link" href="https://github.com/liltaya/Flask-service" target="_blank" rel="noopener">Code on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project" id="virus-exe" aria-labelledby="vx-h">
+        <div class="p-meta">
+          <span class="p-detail"><b>D</b>Detail D</span>
+          <p>Fall 2026</p>
+          <span class="status status-live">In progress</span>
+          <p>SFU team course project</p>
+          <ul class="stack" aria-label="Built with"><li>C++</li><li>Object-oriented design</li></ul>
+        </div>
+        <div class="p-body">
+          <h3 id="vx-h">Virus.exe Card Game</h3>
+          <p class="p-sum">A two-player strategy card game. Each player defends a computer made of four systems, and the first to destroy three of the opponent's four wins.</p>
+          <ul class="p-points">
+            <li>Proposed the concept to my team and designed the rules.</li>
+            <li>Designed the C++ object model that maps a standard 52-card deck to attacks, repairs and face-card abilities such as firewall bypass, antivirus block and zero-day attacks.</li>
+          </ul>
+          <div class="visual">
+            <div class="systems" aria-label="Example end state: three of four systems destroyed">
+              <div class="sys down">CPU</div>
+              <div class="sys">Memory</div>
+              <div class="sys down">Network</div>
+              <div class="sys down">Storage</div>
+            </div>
+            <p class="sys-cap">Three systems down, so this computer has lost.</p>
+            <p class="classes"><span>My classes:</span><code>Card</code><code>Deck</code><code>Player</code><code>ComputerSystem</code></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="project" id="stair-robot" aria-labelledby="sr-h">
+        <div class="p-meta">
+          <span class="p-detail"><b>E</b>Detail E</span>
+          <p>Dec 2025</p>
+          <span class="status status-done">Demonstrated</span>
+          <p>ENSC 100 team project</p>
+          <ul class="stack" aria-label="Built with"><li>C++</li><li>Raspberry Pi</li><li>Motors</li></ul>
+        </div>
+        <div class="p-body">
+          <h3 id="sr-h">Stair-Climbing Robot</h3>
+          <p class="p-sum">A robot our team built to climb stairs, with its motors controlled by a Raspberry Pi. It is the clip in Fig. 1 at the top of this page.</p>
+          <ul class="p-points">
+            <li>Helped assemble the robot.</li>
+            <li>Wrote the C++ code that runs on the Raspberry Pi.</li>
+          </ul>
+          <dl class="visual kv">
+            <div><dt>Course</dt><dd>ENSC 100, SFU</dd></div>
+            <div><dt>Controller</dt><dd>Raspberry Pi</dd></div>
+            <div><dt>My code</dt><dd>C++</dd></div>
+            <div><dt>My role</dt><dd>Assembly and code</dd></div>
+          </dl>
+          <a class="p-link" href="#top">Watch Fig. 1 ↑</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="path" class="section" aria-labelledby="path-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="path-h">Path</h2>
+        <p class="section-note">Kept like a drawing's revision table, oldest first</p>
+      </div>
+      <div class="origin">
+        <p class="label">Before Rev A</p>
+        <p>It started with games. I grew up playing EA SPORTS FIFA and The Sims and wanted to know how they were built. Later I made a small game for children who struggle with concentration, watched them play, noted what confused them, and changed it.</p>
+      </div>
+      <div class="rev-wrap">
+        <table class="rev">
+          <thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Description</th><th scope="col" style="text-align:right">Ref</th></tr></thead>
+          <tbody>
+            <tr><td class="r-rev">A</td><td class="r-date">Jan to Jul 2025</td><td class="r-desc"><strong>Branding Specialist, PlotUp Inc.</strong> Owned the company's visual identity: logo, business cards and the Wix website. Turned stakeholder feedback into site updates and delivered on schedule.</td><td class="r-ref"></td></tr>
+            <tr><td class="r-rev">B</td><td class="r-date">Sep to Dec 2025</td><td class="r-desc"><strong>Boeing 737 software assurance research, SFU.</strong> A report on how safety-critical aircraft software is verified and validated.</td><td class="r-ref"></td></tr>
+            <tr><td class="r-rev">C</td><td class="r-date">Dec 2025</td><td class="r-desc"><strong>Stair-climbing robot, ENSC 100.</strong> Assembly and the Raspberry Pi C++ code.</td><td class="r-ref"><a href="#stair-robot">Detail E</a></td></tr>
+            <tr><td class="r-rev">D</td><td class="r-date">Jan to May 2026</td><td class="r-desc"><strong>MATLAB engineering analysis, SFU.</strong> Modeled engineering scenarios, automated the calculations and validated the results.</td><td class="r-ref"></td></tr>
+            <tr><td class="r-rev">E</td><td class="r-date">Jul to Aug 2026</td><td class="r-desc"><strong>Operational Data Platform and Log Analyzer.</strong> Python API deployed on Linux, with monitoring.</td><td class="r-ref"><a href="#ops-platform">Detail C</a></td></tr>
+            <tr><td class="r-rev">F</td><td class="r-date">Sep to Oct 2026</td><td class="r-desc"><strong>Construction Analytics Dashboard.</strong> Qt6 desktop app in C++20.</td><td class="r-ref"><a href="#construction">Detail B</a></td></tr>
+            <tr><td class="r-rev">G</td><td class="r-date">Fall 2026</td><td class="r-desc"><strong>Virus.exe card game.</strong> SFU team project, in progress.</td><td class="r-ref"><a href="#virus-exe">Detail D</a></td></tr>
+            <tr><td class="r-rev">H</td><td class="r-date">Oct 2026</td><td class="r-desc"><strong>BuildScope AI.</strong> In progress.</td><td class="r-ref"><a href="#buildscope">Detail A</a></td></tr>
+            <tr class="next"><td class="r-rev">Next</td><td class="r-date">May to Dec 2027</td><td class="r-desc"><strong>Open to a full-time software co-op or internship.</strong></td><td class="r-ref"><a href="#contact">Contact</a></td></tr>
+            <tr class="next"><td class="r-rev"></td><td class="r-date">May 2029</td><td class="r-desc">Expected graduation, BASc Engineering Science.</td><td class="r-ref"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="toolkit" class="section" aria-labelledby="tk-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="tk-h">Toolkit</h2>
+        <p class="section-note">Used in the projects above</p>
+      </div>
+      <dl class="tools">
+        <div class="tool"><dt>Languages</dt><dd>Python, C++ (C++17 and C++20), SQL, Java, MATLAB, Bash</dd></div>
+        <div class="tool"><dt>UI and APIs</dt><dd>Qt6 Widgets, custom QPainter widgets, FastAPI, Pydantic, Flask, command-line tools</dd></div>
+        <div class="tool"><dt>Software design</dt><dd>Object-oriented design (C++, Python dataclasses, SQLAlchemy ORM), RAII, layered architecture, data validation</dd></div>
+        <div class="tool"><dt>Testing</dt><dd>GoogleTest, CTest, pytest, coverage, AddressSanitizer, UBSan, mypy, Ruff, strict warnings</dd></div>
+        <div class="tool"><dt>Git and Linux</dt><dd>Git and GitHub (feature branches, pull requests), GitHub Actions CI, Ubuntu, Bash, systemd, Nginx, Docker</dd></div>
+        <div class="tool"><dt>Data</dt><dd>SQLite, PostgreSQL, SQLAlchemy 2.0, CSV and JSON processing, Prometheus, Grafana</dd></div>
+        <div class="tool"><dt>Hardware</dt><dd>Raspberry Pi, motors, hands-on assembly</dd></div>
+        <div class="tool"><dt>Design</dt><dd>Logo and brand identity, print materials, Wix websites</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="section" aria-labelledby="ct-h">
+    <div class="wrap">
+      <div class="contact-card">
+        <p class="label">Contact</p>
+        <h2 id="ct-h">Hiring for May to December 2027?</h2>
+        <p class="blurb">I'm looking for a full-time software co-op or internship. Email is the fastest way to reach me.</p>
+        <div class="email-row">
+          <a class="email" id="emailAddr" href="mailto:tma133@sfu.ca">tma133@sfu.ca</a>
+          <button type="button" class="btn btn-ghost btn-small" id="copyEmail">Copy address</button>
+          <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+        </div>
+        <ul class="links">
+          <li><a class="btn btn-ghost btn-small" href="https://www.linkedin.com/in/taya-mamenko-2978b4323" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a class="btn btn-ghost btn-small" href="https://github.com/liltaya" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a class="btn btn-ghost btn-small" href="assets/Taisiia_Mamenko_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Taisiia Mamenko · Burnaby, BC</span>
+    <span>Rev H · Updated October 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Fig. 1 video: plays muted on loop unless the viewer prefers reduced motion */
+  var v=document.getElementById('robot'), t=document.getElementById('robotToggle');
+  if(v&&t){
+    var reduce=false;
+    try{reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+    var sync=function(){t.textContent=v.paused?'Play':'Pause';t.setAttribute('aria-label',(v.paused?'Play':'Pause')+' Fig. 1 video');};
+    v.addEventListener('play',sync);v.addEventListener('pause',sync);
+    t.addEventListener('click',function(){if(v.paused){var p=v.play();if(p&&p.catch)p.catch(sync);}else{v.pause();}});
+    if(!reduce){var p=v.play();if(p&&p.catch)p.catch(sync);}
+    sync();
+  }
+
+  /* Dashboard screenshot tabs */
+  document.querySelectorAll('[data-shots]').forEach(function(box){
+    var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));
+    function select(tab,focus){
+      tabs.forEach(function(x){
+        var on=x===tab;
+        x.setAttribute('aria-selected',on?'true':'false');
+        x.tabIndex=on?0:-1;
+        var panel=document.getElementById(x.getAttribute('aria-controls'));
+        if(panel){panel.hidden=!on;}
+      });
+      if(focus){tab.focus();}
+    }
+    tabs.forEach(function(tab,i){
+      tab.addEventListener('click',function(){select(tab,false);});
+      tab.addEventListener('keydown',function(e){
+        var k=e.key,n=null;
+        if(k==='ArrowRight'){n=tabs[(i+1)%tabs.length];}
+        else if(k==='ArrowLeft'){n=tabs[(i-1+tabs.length)%tabs.length];}
+        else if(k==='Home'){n=tabs[0];}
+        else if(k==='End'){n=tabs[tabs.length-1];}
+        if(n){e.preventDefault();select(n,true);}
+      });
+    });
+  });
+
+  /* Copy email */
+  var c=document.getElementById('copyEmail'), s=document.getElementById('copyStatus'), a=document.getElementById('emailAddr');
+  if(c&&s&&a){
+    var fallback=function(){
+      try{var r=document.createRange();r.selectNodeContents(a);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);}catch(e){}
+      s.textContent='Selected. Press Ctrl+C or Cmd+C to copy.';
+    };
+    c.addEventListener('click',function(){
+      try{
+        navigator.clipboard.writeText('tma133@sfu.ca').then(function(){s.textContent='Copied to clipboard';},fallback);
+      }catch(e){fallback();}
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
