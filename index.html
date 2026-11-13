@@ -3,649 +3,583 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Taisiia (Taya) Mamenko · Software Engineering Student</title>
-<meta name="description" content="Taisiia (Taya) Mamenko, Engineering Science student at SFU. Python, modern C++ and Qt6 tools with tests and CI. Available for a full-time co-op May to December 2027.">
+<title>Taisiia Mamenko · Engineering Portfolio</title>
+<meta name="description" content="Taisiia (Taya) Mamenko, Engineering Science student at Simon Fraser University. Developer tools, data dashboards and team-built robots and games, each one tested. Available for a co-op from December 2026 to August 2027.">
 <meta name="author" content="Taisiia Mamenko">
 <link rel="canonical" href="https://liltaya.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1.5' y='1.5' width='29' height='29' fill='%23EDF1F0' stroke='%2314223A' stroke-width='3'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='13' fill='%2314223A'%3ETM%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#EDF1F0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B2036" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23EE6A1F'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Didot,Bodoni 72,Georgia,serif' font-size='26' fill='%231E1915'%3ETM%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://liltaya.github.io/">
-<meta property="og:title" content="Taisiia (Taya) Mamenko · Software Engineering Student">
-<meta property="og:description" content="Taisiia (Taya) Mamenko, Engineering Science student at SFU. Python, modern C++ and Qt6 tools with tests and CI. Available for a full-time co-op December to August 2027.">
+<meta property="og:title" content="Taisiia Mamenko · Engineering Portfolio">
+<meta property="og:description" content="Developer tools, data dashboards and team-built robots and games, each one tested. Available for a co-op from December 2026 to August 2027.">
 <meta property="og:image" content="https://liltaya.github.io/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<style>html{padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=B612+Mono:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* Layout: one engineering drawing sheet. The hero is the sheet itself (thesis, Fig. 1, general notes, title block),
-   each project is a lettered detail, and the career path is the sheet's revision table, cross-referenced to the details. */
+/* Layout: a maison's catalogue for an engineer. Each project is a piece shown on its own coloured ground,
+   with materials, dimensions and a dated test certificate. One bold orange moment (the hero), everything else quiet. */
+@font-face{font-family:"Bodoni Moda";src:url(assets/fonts/bodoni-moda.woff2) format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url(assets/fonts/bodoni-moda-italic.woff2) format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Jost";src:url(assets/fonts/jost.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Jost";src:url(assets/fonts/jost-italic.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(assets/fonts/plex-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(assets/fonts/plex-mono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+
 :root{
-  --paper:#EDF1F0;
-  --surface:#F8FAF9;
-  --ink:#14223A;
-  --ink-2:#4B5B70;
-  --line:#C3CFD5;
-  --line-strong:#14223A;
-  --grid-minor:rgba(20,34,58,.045);
-  --grid-major:rgba(20,34,58,.085);
-  --accent:#1E48C8;
-  --accent-soft:rgba(30,72,200,.09);
-  --redline:#BF3328;
-  --on-ink:#EDF1F0;
-  --shot-bg:#2A2A2A;
-  --overlay-bg:rgba(8,16,28,.72);
-  --overlay-fg:#FFFFFF;
-
-  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-mono:"B612 Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --maxw:1180px;
+  --paper:#FFFFFF;
+  --ink:#1E1915;
+  --ink-2:#6E645C;
+  --line:#E8E2DB;
+  --orange:#EE6A1F;
+  --orange-ink:#A9420A;
+  --sand:#EFE6DA;
+  --sky:#DCE6EC;
+  --stone:#ECEAE5;
+  --sage:#DDE4D5;
+  --blush:#F3E0D7;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --max:1320px;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#0B2036; --surface:#0F2843; --ink:#E3EDF6; --ink-2:#A2B6CA; --line:#294869; --line-strong:#9EC2E4;
-    --grid-minor:rgba(170,210,245,.05); --grid-major:rgba(170,210,245,.10);
-    --accent:#8EC5FF; --accent-soft:rgba(142,197,255,.12); --redline:#FF8E7E; --on-ink:#0B2036;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#0B2036; --surface:#0F2843; --ink:#E3EDF6; --ink-2:#A2B6CA; --line:#294869; --line-strong:#9EC2E4;
-  --grid-minor:rgba(170,210,245,.05); --grid-major:rgba(170,210,245,.10);
-  --accent:#8EC5FF; --accent-soft:rgba(142,197,255,.12); --redline:#FF8E7E; --on-ink:#0B2036;
-  color-scheme:dark;
-}
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
-img,video{max-width:100%}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-bottom:env(safe-area-inset-bottom,0px)}
+img,video,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orange-ink);outline-offset:3px}
 [hidden]{display:none!important}
-a{color:var(--accent)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-@media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
-.skip{position:absolute;left:-9999px;top:0}
-.skip:focus{left:16px;top:16px;z-index:20;background:var(--ink);color:var(--on-ink);padding:8px 12px}
-.label{font-family:var(--f-mono);font-size:11.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:0}
+.wrap{max-width:var(--max);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.label{font:500 11.5px/1.4 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:30;background:var(--ink);color:var(--paper);padding:10px 14px}
 
-/* Top bar */
-.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
-.topbar-in{display:flex;align-items:center;gap:20px;min-height:60px}
-.mark{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
-.mark-box{display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--ink);font-weight:700;font-size:11.5px;letter-spacing:.02em}
-.nav{margin-left:auto;display:flex;gap:24px}
-.nav a{color:var(--ink-2);text-decoration:none;font-size:15px}
-.nav a:hover{color:var(--ink)}
-@media (max-width:620px){.mark-name{display:none}.nav{gap:14px}.nav a{font-size:14px}}
-@media (max-width:400px){.nav a.opt{display:none}}
-
-/* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;background:var(--ink);color:var(--on-ink);border:1.5px solid var(--ink);border-radius:2px;font:600 15px/1 var(--f-body);text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
-.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--on-ink)}
-.btn-ghost{background:transparent;color:var(--ink)}
-.btn-small{min-height:36px;padding:0 14px;font-size:14px}
-
-/* Sheet (hero) */
-.sheet-band{padding-block:28px 0}
-.sheet{position:relative;border:1.5px solid var(--line-strong);background-color:var(--surface);
-  background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
-  background-size:80px 80px,80px 80px,16px 16px,16px 16px;
-  padding:clamp(22px,4.5vw,56px)}
-.sheet::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
-.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(28px,4.5vw,64px);align-items:center}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
-h1{font-family:var(--f-display);font-stretch:114%;font-weight:800;font-size:clamp(44px,6.3vw,86px);line-height:.9;letter-spacing:-.012em;margin:0;text-wrap:balance}
-.aka{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;color:var(--ink-2);margin:16px 0 0}
-.lead{font-size:clamp(18px,1.7vw,20.5px);line-height:1.55;max-width:33em;margin:22px 0 0}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-
-.fig{margin:0;min-width:0}
-.fig-crop{position:relative;padding:12px;
-  background:
-    linear-gradient(var(--ink),var(--ink)) left top/20px 1.5px no-repeat,
-    linear-gradient(var(--ink),var(--ink)) left top/1.5px 20px no-repeat,
-    linear-gradient(var(--ink),var(--ink)) right top/20px 1.5px no-repeat,
-    linear-gradient(var(--ink),var(--ink)) right top/1.5px 20px no-repeat,
-    linear-gradient(var(--ink),var(--ink)) left bottom/20px 1.5px no-repeat,
-    linear-gradient(var(--ink),var(--ink)) left bottom/1.5px 20px no-repeat,
-    linear-gradient(var(--ink),var(--ink)) right bottom/20px 1.5px no-repeat,
-    linear-gradient(var(--ink),var(--ink)) right bottom/1.5px 20px no-repeat}
-.fig-frame{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--shot-bg);overflow:hidden}
-.fig-frame video{display:block;width:100%;height:100%;object-fit:cover}
-.fig-toggle{position:absolute;right:10px;bottom:10px;background:var(--overlay-bg);color:var(--overlay-fg);border:1px solid rgba(255,255,255,.35);border-radius:2px;padding:6px 10px;font:700 10.5px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-.fig-toggle:hover{background:rgba(8,16,28,.9)}
-figcaption{margin-top:12px;font-size:14.5px;line-height:1.5;color:var(--ink-2);max-width:36em}
-.fig-no{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-right:8px}
-
-.sheet-foot{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.65fr);gap:clamp(22px,3.5vw,44px);margin-top:clamp(32px,4.5vw,52px);align-items:end}
-.notes ol{margin:10px 0 0;padding-left:1.5em;font-size:15px;line-height:1.5;color:var(--ink-2);display:grid;gap:6px}
-.notes li::marker{font-family:var(--f-mono);font-size:12.5px;color:var(--accent)}
-.titleblock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5px;background:var(--line-strong);border:1.5px solid var(--line-strong);margin:0}
-.tb-cell{background:var(--surface);padding:10px 12px 11px;min-width:0}
-.tb-cell dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-.tb-cell dd{margin:5px 0 0;font-size:15px;line-height:1.3;font-weight:600}
-.tb-wide{grid-column:span 2}
-.tb-key dd{color:var(--accent)}
-.tb-num{font-family:var(--f-display);font-stretch:112%;font-weight:750;font-size:22px !important;line-height:1.05 !important;font-variant-numeric:tabular-nums}
-
-@media (max-width:900px){
-  .hero{grid-template-columns:minmax(0,1fr)}
-  .sheet-foot{grid-template-columns:minmax(0,1fr)}
-}
-@media (max-width:560px){
-  .titleblock{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-
-/* Sections */
-.section{padding-block:clamp(64px,8vw,108px) 0}
-.section-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-bottom:14px;border-bottom:1.5px solid var(--line-strong)}
-h2{font-family:var(--f-display);font-stretch:114%;font-weight:760;font-size:clamp(32px,4.2vw,46px);line-height:1.04;letter-spacing:-.006em;margin:0;text-wrap:balance}
-.section-note{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--ink-2);margin:0}
-
-/* Projects */
-.project{display:grid;grid-template-columns:210px minmax(0,1fr);gap:clamp(20px,4.5vw,64px);padding-block:clamp(36px,4.5vw,56px);border-bottom:1px solid var(--line)}
-.p-meta{display:flex;flex-direction:column;align-items:flex-start;gap:9px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2);align-self:start;position:sticky;top:84px}
-.p-detail{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;letter-spacing:.09em;text-transform:uppercase;font-size:11.5px}
-.p-detail b{display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--ink);border-radius:50%;font-size:13px;letter-spacing:0}
-.p-meta p{margin:0}
-.status{display:inline-block;padding:3px 8px 2px;border:1px solid currentColor;border-radius:2px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
-.status-live{color:var(--redline)}
-.status-done{color:var(--accent)}
-.stack{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:6px}
-.stack li{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:2px 7px;font-size:11.5px;border-radius:2px}
-.p-body{min-width:0}
-h3{font-family:var(--f-display);font-stretch:110%;font-weight:720;font-size:clamp(25px,2.7vw,32px);line-height:1.12;margin:0;text-wrap:balance}
-.p-sum{font-size:18.5px;line-height:1.55;margin:10px 0 0;max-width:38em}
-.p-points{margin:16px 0 0;padding-left:1.15em;color:var(--ink-2);max-width:42em;display:grid;gap:7px}
-.p-points li::marker{color:var(--accent)}
-.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:26px;border-top:1px solid var(--line)}
-.m{padding:14px 16px 0 0;min-width:0}
-.m+.m{padding-left:16px;border-left:1px solid var(--line)}
-.m-n{display:block;font-family:var(--f-display);font-stretch:112%;font-weight:760;font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
-.m-l{display:block;font-size:13.5px;line-height:1.35;color:var(--ink-2);margin-top:7px}
-.visual{margin-top:26px}
-.p-link{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-weight:600;color:var(--accent);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
-.p-link:hover{color:var(--ink)}
-
-/* BuildScope endpoints */
-.spec{border:1px solid var(--line-strong);background:var(--surface);overflow-x:auto}
-.spec-row{display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr);gap:4px 20px;padding:10px 14px;border-top:1px solid var(--line);align-items:baseline}
-.spec-row:first-child{border-top:0}
-.spec code{font-family:var(--f-mono);font-size:13px;color:var(--ink);white-space:nowrap}
-.verb{display:inline-block;min-width:46px;font-weight:700;color:var(--accent)}
-.spec-row span{font-size:14.5px;color:var(--ink-2)}
-@media (max-width:620px){.spec-row{grid-template-columns:minmax(0,1fr)}}
-
-/* Dashboard screenshots */
-.shot-tabs{display:inline-grid;grid-auto-flow:column;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);max-width:100%;margin-bottom:10px}
-.shot-tabs button{appearance:none;border:0;background:var(--surface);color:var(--ink);font:400 12px/1.2 var(--f-mono);letter-spacing:.04em;padding:9px 12px;cursor:pointer}
-@media (max-width:560px){.shot-tabs{display:grid;grid-auto-flow:row;grid-template-columns:1fr 1fr;width:100%}}
-.shot-tabs button[aria-selected="true"]{background:var(--ink);color:var(--on-ink)}
-.shot-frame{border:1px solid var(--line-strong);background:var(--shot-bg);aspect-ratio:1800/743;max-width:100%}
-.shot-frame img{display:block;width:100%;height:auto}
-.shot-cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;margin-top:8px;font-size:13.5px;color:var(--ink-2)}
-.shot-cap a{color:var(--accent)}
-
-/* Flask flow */
-.flow{display:grid;gap:10px;font-family:var(--f-mono);font-size:12.5px}
-.flow-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.flow-tag{width:100%;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-.node{display:inline-flex;flex-direction:column;gap:2px;border:1px solid var(--line-strong);background:var(--surface);padding:7px 11px;color:var(--ink)}
-.node small{font-size:10.5px;color:var(--ink-2)}
-.node-key{border-width:1.5px;background:var(--accent-soft)}
-.arr{color:var(--ink-2)}
-
-/* Virus.exe */
-.systems{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.sys{border:1.5px solid var(--line-strong);background:var(--surface);padding:14px 10px;text-align:center;font-family:var(--f-mono);font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);position:relative;min-width:0;overflow:hidden}
-.sys.down{color:var(--redline);border-color:var(--redline);background:repeating-linear-gradient(135deg,transparent 0 7px,var(--accent-soft) 7px 8px),var(--surface)}
-.sys.down::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--redline) calc(50% - 1px),var(--redline) calc(50% + .5px),transparent calc(50% + .5px));opacity:.4}
-.sys-cap{margin:8px 0 0;font-size:13.5px;color:var(--ink-2)}
-.classes{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center;font-size:13.5px;color:var(--ink-2)}
-.classes code{font-family:var(--f-mono);font-size:12px;color:var(--ink);border:1px solid var(--line);background:var(--surface);padding:2px 7px}
-@media (max-width:460px){.systems{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* Robot */
-.kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0 0}
-.kv div{background:var(--surface);padding:10px 12px;min-width:0}
-.kv dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-.kv dd{margin:4px 0 0;font-weight:600;font-size:15px}
-@media (max-width:620px){.kv{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
+/* Header */
+.ribbon{height:4px;background:var(--orange)}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.top-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;min-height:72px}
+.nav{display:flex;gap:26px}
+.nav a{text-decoration:none;font:500 11.5px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--ink);padding:8px 0;border-bottom:1px solid transparent}
+.nav a:hover{border-bottom-color:var(--ink)}
+.nav-r{justify-content:flex-end}
+.mark{text-align:center;text-decoration:none;color:var(--ink);display:grid;gap:3px}
+.mark b{font:400 21px/1 var(--display);letter-spacing:.3em;padding-left:.3em;white-space:nowrap}
+.mark small{font:500 9.5px/1 var(--body);letter-spacing:.32em;padding-left:.32em;text-transform:uppercase;color:var(--ink-2)}
 @media (max-width:820px){
-  .project{grid-template-columns:minmax(0,1fr)}
-  .p-meta{position:static;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 12px}
-  .p-meta .p-detail{width:100%}
-  .stack{width:100%;margin-top:0}
-}
-@media (max-width:520px){
-  .m-n{font-size:25px}
-  .m{padding-right:10px}
-  .m+.m{padding-left:10px}
-  .m-l{font-size:12.5px}
+  .top{position:static}
+  .top-in{grid-template-columns:1fr;justify-items:center;padding-block:14px 10px;gap:10px}
+  .nav{gap:18px;flex-wrap:wrap;justify-content:center}
+  .nav-l{order:2}.nav-r{order:3;justify-content:center}
+  .mark b{font-size:18px}
 }
 
-/* Path: revision table */
-.origin{display:grid;grid-template-columns:210px minmax(0,1fr);gap:clamp(20px,4.5vw,64px);padding-block:28px}
-.origin p{margin:0;max-width:42em}
-.rev-wrap{border:1.5px solid var(--line-strong);background:var(--surface)}
-table.rev{width:100%;border-collapse:collapse;font-size:15.5px;line-height:1.5}
-.rev th{font-family:var(--f-mono);font-size:10.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;text-align:left;color:var(--ink-2);padding:10px 16px;border-bottom:1.5px solid var(--line-strong)}
-.rev td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}
-.rev tbody tr:first-child td{border-top:0}
-.rev .r-rev{font-family:var(--f-mono);font-weight:700;width:64px}
-.rev .r-date{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2);white-space:nowrap;width:170px;padding-top:15px}
-.rev .r-ref{font-family:var(--f-mono);font-size:12px;white-space:nowrap;width:110px;padding-top:15px;text-align:right}
-.rev .r-ref a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
-.rev tr.next td{border-top:1px dashed var(--redline)}
-.rev tr.next .r-rev,.rev tr.next .r-desc strong{color:var(--redline)}
-@media (max-width:700px){
-  .origin{grid-template-columns:minmax(0,1fr);gap:8px}
-  .rev thead{display:none}
-  .rev,.rev tbody{display:block}
-  .rev tr{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:2px 10px;padding:12px 14px;border-top:1px solid var(--line);align-items:baseline}
-  .rev .r-rev{grid-column:1;grid-row:1}
-  .rev .r-date{grid-column:2;grid-row:1}
-  .rev .r-ref{grid-column:3;grid-row:1;text-align:right}
-  .rev tbody tr:first-child{border-top:0}
-  .rev tr.next{border-top:1px dashed var(--redline)}
-  .rev td{display:block;padding:0;border:0 !important;width:auto}
-  .rev .r-desc{grid-column:1/-1;grid-row:2;margin-top:4px}
-  .rev .r-date,.rev .r-ref{padding-top:1px}
-}
+/* Hero */
+.hero{padding-block:clamp(40px,7vw,96px) 0;text-align:center}
+.hero .label{margin:0 0 22px}
+.hero h1{font:400 italic clamp(42px,7vw,96px)/1.02 var(--display);letter-spacing:-.01em;margin:0 auto;max-width:15ch;text-wrap:balance}
+.hero p.lead{max-width:36em;margin:26px auto 0;font-size:clamp(17px,1.5vw,19px);color:var(--ink)}
+.avail{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:22px;font:500 12px/1.5 var(--body);letter-spacing:.14em;text-transform:uppercase}
+.avail span{display:inline-flex;align-items:center;gap:8px}
+.avail span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.hero-plinth{margin-top:clamp(40px,6vw,72px);background:var(--orange);padding-block:clamp(36px,7vw,96px)}
+.hero-plinth figure{margin:0 auto;max-width:1120px}
+.shot{border-radius:6px;box-shadow:0 40px 70px -36px rgba(30,25,21,.55),0 2px 8px rgba(30,25,21,.10);background:#fff}
+.hero-plinth .shot{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) .1s both}
+@keyframes rise{from{transform:translateY(28px);opacity:.001}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.hero-plinth .shot{animation:none}}
+.caption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:16px;font-size:14px;color:var(--ink-2);text-align:left}
+.caption b{font-weight:500;color:var(--ink)}
 
-/* Toolkit */
-.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);margin:0}
-.tool{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 18px;padding-block:16px;border-bottom:1px solid var(--line)}
-.tool dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);padding-top:3px}
-.tool dd{margin:0;font-size:15.5px;line-height:1.5}
-@media (max-width:860px){.tools{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:480px){.tool{grid-template-columns:minmax(0,1fr)}}
+/* Section heads */
+.section{padding-block:clamp(72px,10vw,140px) 0}
+.head{display:grid;gap:14px;text-align:center;margin-bottom:clamp(36px,5vw,64px)}
+.head h2{font:400 clamp(36px,5vw,62px)/1.05 var(--display);margin:0;text-wrap:balance}
+.head h2 em{font-style:italic}
+.head p{margin:0 auto;max-width:34em;color:var(--ink-2)}
+
+/* Collection */
+.rail-wrap{position:relative}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(232px,1fr);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin}
+.card{scroll-snap-align:start;text-decoration:none;color:var(--ink);display:grid;gap:14px}
+.card .ground{aspect-ratio:4/5;display:grid;place-items:center;padding:22px;overflow:hidden}
+.card .ground img,.card .ground svg{max-height:100%;width:100%;height:auto;object-fit:contain;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ground img,.card:hover .ground svg,.card:hover .ground .typo{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.card .ground img,.card .ground svg{transition:none}}
+.card .meta{display:grid;gap:4px;text-align:center}
+.card .meta b{font:400 22px/1.15 var(--display)}
+.card .meta span{font:500 11px/1.4 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.typo{text-align:center;display:grid;gap:8px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.typo strong{font:400 italic clamp(30px,3vw,40px)/1 var(--display)}
+.typo small{font:500 11px/1.4 var(--body);letter-spacing:.16em;text-transform:uppercase}
+.rail-ctrl{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.rail-ctrl button{width:44px;height:44px;border-radius:50%;border:1px solid var(--ink);background:var(--paper);color:var(--ink);font:400 18px/1 var(--body);cursor:pointer}
+.rail-ctrl button:hover{background:var(--ink);color:var(--paper)}
+@media (min-width:1220px){.rail-ctrl{display:none}}
+
+/* Pieces */
+.piece{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:start;padding-block:clamp(56px,7vw,100px);border-top:1px solid var(--line)}
+.piece.flip{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.piece.flip .media{order:2}
+@media (max-width:900px){.piece,.piece.flip{grid-template-columns:minmax(0,1fr)}.piece.flip .media{order:0}}
+.ground{padding:clamp(20px,5vw,64px)}
+.g-orange{background:var(--orange)}.g-sand{background:var(--sand)}.g-sky{background:var(--sky)}.g-stone{background:var(--stone)}.g-sage{background:var(--sage)}.g-blush{background:var(--blush)}
+.media figure{margin:0}
+.art{width:100%;max-width:380px;margin:0 auto}
+.media .note{margin-top:12px;font-size:14px;color:var(--ink-2)}
+.text{min-width:0;display:grid;gap:18px;align-content:start}
+.text .label{margin:0}
+.text h3{font:400 clamp(38px,4.2vw,56px)/1.02 var(--display);margin:0;text-wrap:balance}
+.text p{margin:0;max-width:34em}
+.specs{margin:6px 0 0;border-top:1px solid var(--ink)}
+.specs div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.specs dt{font:500 11px/1.9 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.specs dd{margin:0;font-size:15.5px;line-height:1.55}
+@media (max-width:420px){.specs div{grid-template-columns:minmax(0,1fr);gap:2px}}
+.cert{display:grid;grid-template-columns:76px minmax(0,1fr);gap:16px;align-items:center;border:1px solid var(--ink);padding:14px 16px}
+.cert svg{width:76px;height:76px}
+.cert .lines{font:400 13px/1.55 var(--mono);min-width:0;overflow-wrap:anywhere}
+.cert .lines b{font-weight:500}
+.more{display:inline-flex;align-items:center;gap:10px;width:max-content;text-decoration:none;font:500 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;padding:15px 22px;border:1px solid var(--ink);transition:background .2s,color .2s}
+.more:hover{background:var(--ink);color:var(--paper)}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+
+.details{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
+.details figure{margin:0;display:grid;gap:8px;min-width:0}
+.details .g-stone{padding:14px;aspect-ratio:4/3;min-width:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.details img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(30,25,21,.22))}
+.details figcaption{font-size:13px;color:var(--ink-2);line-height:1.45}
+@media (max-width:900px){.details{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.tabs{display:flex;flex-wrap:wrap;gap:4px 22px;margin:0 0 14px}
+.tabs button{appearance:none;background:none;border:0;border-bottom:1px solid transparent;padding:6px 0;font:500 11.5px/1.3 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+
+.slip{background:#FFFDF9;max-width:440px;margin:0 auto;padding:26px 26px 22px;font:400 13.5px/1.7 var(--mono);box-shadow:0 30px 50px -30px rgba(30,25,21,.45);position:relative}
+.slip::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,#FFFDF9 0) 0 0/14px 10px repeat-x,linear-gradient(45deg,transparent 7px,#FFFDF9 0) 7px 0/14px 10px repeat-x}
+.slip h4{margin:0 0 4px;font:500 11px/1.4 var(--body);letter-spacing:.18em;text-transform:uppercase}
+.slip .cmd{color:var(--ink-2);margin:0 0 12px;overflow-wrap:anywhere}
+.slip dl{margin:0;display:grid;grid-template-columns:auto auto;gap:2px 18px}
+.slip dt{color:var(--ink-2)}
+.slip dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.slip hr{border:0;border-top:1px dashed #CFC6BC;margin:14px 0}
+.slip .flag{color:var(--orange-ink);overflow-wrap:anywhere}
+
+.vid{position:relative}
+.vid video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:#2a2a2a}
+.vid button{position:absolute;right:12px;bottom:12px;background:rgba(30,25,21,.75);color:#fff;border:0;border-radius:999px;padding:8px 14px;font:500 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
+@media (max-width:900px){.about{grid-template-columns:minmax(0,1fr)}}
+.about .intro{font:400 clamp(24px,2.4vw,32px)/1.35 var(--display);margin:0;text-wrap:pretty}
+.about .intro em{font-style:italic}
+.facts{margin:0;border-top:1px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.facts dt{font:500 11px/1.9 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.facts dd{margin:0}
+.facts .hl{color:var(--orange-ink);font-weight:500}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,40px);margin-top:clamp(48px,6vw,80px);padding-top:28px;border-top:1px solid var(--line)}
+.rules h4{margin:0 0 6px;font:400 italic 24px/1.2 var(--display)}
+.rules p{margin:0;color:var(--ink-2);font-size:15.5px}
+@media (max-width:760px){.rules{grid-template-columns:minmax(0,1fr)}}
+
+/* Path */
+.years{display:grid;gap:0}
+.year{display:grid;grid-template-columns:minmax(120px,220px) minmax(0,1fr);gap:clamp(16px,4vw,56px);padding-block:28px;border-top:1px solid var(--line)}
+.year > b{font:400 clamp(48px,6vw,76px)/.9 var(--display);font-variant-numeric:lining-nums}
+.year ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.year li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px}
+.year li span{font:500 11px/1.9 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.year li a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:4px}
+.year.next > b{color:var(--orange)}
+.year.next li span{color:var(--orange-ink)}
+@media (max-width:640px){.year{grid-template-columns:minmax(0,1fr)}.year li{grid-template-columns:minmax(0,1fr);gap:0}}
 
 /* Contact */
-.contact-card{border:1.5px solid var(--line-strong);background:var(--surface);padding:clamp(24px,5vw,60px);display:grid;gap:18px;position:relative}
-.contact-card::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
-.contact-card>*{position:relative}
-.contact-card h2{font-size:clamp(32px,5vw,56px);max-width:15ch}
-.contact-card p.blurb{margin:0;max-width:36em;font-size:18px}
-.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:6px}
-.email{font-family:var(--f-display);font-stretch:110%;font-weight:720;font-size:clamp(26px,4vw,42px);line-height:1.1;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}
-.email:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
-.copy-status{font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
-.links{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.contact{margin-top:clamp(72px,10vw,140px);background:var(--sand);padding-block:clamp(64px,9vw,120px);text-align:center}
+.contact h2{font:400 italic clamp(36px,5vw,64px)/1.05 var(--display);margin:14px auto 0;max-width:16ch;text-wrap:balance}
+.contact p{max-width:34em;margin:20px auto 0}
+.email{display:inline-block;margin-top:28px;font:400 clamp(26px,3.6vw,44px)/1.1 var(--display);color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);overflow-wrap:anywhere}
+.email:hover{color:var(--orange-ink);border-bottom-color:var(--orange-ink)}
+.contact .links{justify-content:center;margin-top:30px}
+.copy-status{display:block;min-height:1.4em;margin-top:10px;font-size:13px;color:var(--ink-2)}
 
-.foot{margin-top:clamp(64px,8vw,104px);border-top:1.5px solid var(--line-strong)}
-.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:20px 28px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+footer{padding-block:28px 40px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;font:500 11px/1.6 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
 </style>
-
 </head>
 <body>
-<a class="skip" href="#work">Skip to projects</a>
-
-<header class="topbar">
-  <div class="wrap topbar-in">
-    <a class="mark" href="#top" aria-label="Taisiia Mamenko, back to top"><span class="mark-box" aria-hidden="true">TM</span><span class="mark-name">Taisiia Mamenko</span></a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#path" class="opt">Path</a>
-      <a href="#toolkit" class="opt">Toolkit</a>
+<a class="skip" href="#collection">Skip to the projects</a>
+<div class="ribbon" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap top-in">
+    <nav class="nav nav-l" aria-label="Sections">
+      <a href="#collection">The collection</a>
+      <a href="#about">About</a>
+      <a href="#path">Path</a>
+    </nav>
+    <a class="mark" href="#top" aria-label="Taisiia Mamenko, back to top"><b>TAISIIA MAMENKO</b><small>Engineering · SFU</small></a>
+    <nav class="nav nav-r" aria-label="Résumé and contact">
+      <a href="Taisiia_Mamenko_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-small" href="Taisiia_Mamenko_Resume.pdf" target="_blank" rel="noopener">Resume</a>
   </div>
 </header>
 
 <main id="top">
-  <section class="sheet-band" aria-label="Introduction">
+  <section class="hero" aria-labelledby="hero-h">
     <div class="wrap">
-      <div class="sheet">
-        <div class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow">Software engineering student · Python · C++ · Qt6</p>
-            <h1>Taisiia<br>Mamenko</h1>
-            <p class="aka">Goes by Taya</p>
-            <p class="lead">I build tools people use: Qt6 desktop apps in modern C++, Python APIs, and data checks that catch bad records before they reach the database. Every project ships with tests and CI.</p>
-            <div class="cta">
-              <a class="btn" href="#contact">Get in touch</a>
-              <a class="btn btn-ghost" href="#work">See the work</a>
-            </div>
+      <p class="label">Engineering Science · Simon Fraser University</p>
+      <h1 id="hero-h">Made with care, tested with rigour.</h1>
+      <p class="lead">I build developer tools and data dashboards, and with my SFU teams, robots and games. The software is tested before it leaves my hands, and the proof is on this page.</p>
+      <p class="avail"><span>Available December 2026 to August 2027</span><span>Burnaby, BC</span></p>
+    </div>
+    <div class="hero-plinth">
+      <div class="wrap">
+        <figure>
+          <img class="shot" src="assets/img/buildscope-hero.webp" width="2000" height="882" alt="BuildScope dashboard: summary of 44 runs with a 68.2 percent pass rate, one open regression and one flaky test, above a run matrix of the last 30 runs across six pipeline stages.">
+        </figure>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="caption"><span><b>BuildScope</b>, my local CI runner, released as v0.1.0 in November 2026.</span><span>Captured from the running app with its built-in demo history.</span></p>
+    </div>
+  </section>
+
+  <section class="section" id="collection" aria-labelledby="col-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">The collection</p>
+        <h2 id="col-h">Five pieces, <em>each one working</em></h2>
+        <p>Three I designed and built alone, two made with SFU teams. The three software pieces were built, run and photographed on 13 November 2026.</p>
+      </div>
+      <div class="rail-wrap">
+        <div class="rail" id="rail" tabindex="0" aria-label="Projects, scroll sideways">
+          <a class="card" href="#buildscope">
+            <div class="ground g-orange"><img src="assets/img/buildscope-dashboard.webp" width="1800" height="1582" alt="" style="border-radius:3px;box-shadow:0 18px 30px -18px rgba(30,25,21,.6)"></div>
+            <div class="meta"><b>BuildScope</b><span>Developer tool · 2026</span></div>
+          </a>
+          <a class="card" href="#construction">
+            <div class="ground g-sky"><img src="assets/img/construction-overview.webp" width="1600" height="867" alt="" style="border-radius:3px;box-shadow:0 18px 30px -18px rgba(30,25,21,.5)"></div>
+            <div class="meta"><b>Construction Dashboard</b><span>Desktop analytics · 2026</span></div>
+          </a>
+          <a class="card" href="#platform">
+            <div class="ground g-stone"><div class="typo"><small>1,000,000 lines</small><strong>in 16.2 s</strong><small>log analyzer</small></div></div>
+            <div class="meta"><b>Data Platform</b><span>Backend &amp; operations · 2026</span></div>
+          </a>
+          <a class="card" href="#robot">
+            <div class="ground g-sage"><img src="assets/img/stair-robot-poster.jpg" width="1280" height="720" alt="" style="border-radius:3px"></div>
+            <div class="meta"><b>Stair-Climbing Robot</b><span>Robotics, team · 2025</span></div>
+          </a>
+          <a class="card" href="#virus">
+            <div class="ground g-blush"><svg viewBox="0 0 220 220" aria-hidden="true"><use href="#virus-art"></use></svg></div>
+            <div class="meta"><b>Virus.exe</b><span>Game, team · 2026</span></div>
+          </a>
+        </div>
+        <div class="rail-ctrl"><button type="button" id="railPrev" aria-label="Scroll projects left">←</button><button type="button" id="railNext" aria-label="Scroll projects right">→</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Projects in detail" style="padding-top:clamp(48px,6vw,80px)">
+    <div class="wrap">
+
+      <article class="piece" id="buildscope" aria-labelledby="bs-h">
+        <div class="media">
+          <figure>
+            <div class="ground g-orange"><img class="shot" src="assets/img/buildscope-dashboard.webp" width="1800" height="1582" alt="The full BuildScope dashboard for the demo payments-ledger pipeline." loading="lazy"></div>
+          </figure>
+          <div class="details">
+            <figure><div class="g-stone"><img src="assets/img/buildscope-run-matrix.webp" width="1400" height="312" alt="Run matrix: each column a run, each row a stage, failures and retries marked." loading="lazy"></div><figcaption>Run matrix: every stage of the last 30 runs.</figcaption></figure>
+            <figure><div class="g-stone"><img src="assets/img/buildscope-risk.webp" width="966" height="715" alt="Stage failure risk bars with the model's holdout ROC AUC." loading="lazy"></div><figcaption>Failure risk per stage, with the model's honest AUC.</figcaption></figure>
+            <figure><div class="g-stone"><img src="assets/img/buildscope-regression.webp" width="1400" height="232" alt="Commit timeline with an open regression window from last good to first bad commit." loading="lazy"></div><figcaption>Regression window, last good to first bad commit.</figcaption></figure>
+            <figure><div class="g-stone"><img src="assets/img/buildscope-benchmarks.webp" width="966" height="480" alt="Benchmark chart showing a 43.6 percent slowdown." loading="lazy"></div><figcaption>A 43.6% slowdown, flagged with median and MAD.</figcaption></figure>
           </div>
-          <figure class="fig">
-            <div class="fig-crop">
-              <div class="fig-frame">
-                <video id="robot" src="stair-robot.mp4" poster="stair-robot-poster.jpg" muted loop playsinline preload="metadata" aria-label="The stair-climbing robot moving its front leg linkage in the SFU engineering lab"></video>
-                <button class="fig-toggle" id="robotToggle" type="button">Play</button>
+        </div>
+        <div class="text">
+          <p class="label">Developer tool · Solo · Oct to Nov 2026</p>
+          <h3 id="bs-h">BuildScope</h3>
+          <p>BuildScope runs CI pipelines on your own machine and keeps every attempt, test result and benchmark sample. From that history it answers the questions CI dashboards leave to you: which commit broke the build, which tests are flaky rather than broken, and which stage got slower and by how much.</p>
+          <dl class="specs">
+            <div><dt>Materials</dt><dd>Python, FastAPI, SQLAlchemy, SQLite, JavaScript, C++20</dd></div>
+            <div><dt>Inside</dt><dd>DAG validation, a durable job queue with leases and crash recovery, flaky-test classification, benchmark slowdown detection, a logistic-regression failure model</dd></div>
+            <div><dt>Dimensions</dt><dd>24 merged pull requests · 706 test cases · CI on Ubuntu and macOS · v0.1.0</dd></div>
+          </dl>
+          <div class="cert">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#seal"></use></svg>
+            <p class="lines"><b>Tested 13 Nov 2026</b><br>pytest · 706 passed, 15 skipped<br>1 min 49 s on Linux, Python 3.12</p>
+          </div>
+          <div class="links"><a class="more" href="https://github.com/liltaya/buildscope-ai" target="_blank" rel="noopener">View the code</a></div>
+        </div>
+      </article>
+
+      <article class="piece flip" id="construction" aria-labelledby="cd-h">
+        <div class="media">
+          <div class="tabs" role="tablist" aria-label="Dashboard views">
+            <button type="button" role="tab" id="t-ov" aria-controls="p-ov" aria-selected="true">Overview</button>
+            <button type="button" role="tab" id="t-co" aria-controls="p-co" aria-selected="false" tabindex="-1">Costs</button>
+            <button type="button" role="tab" id="t-sc" aria-controls="p-sc" aria-selected="false" tabindex="-1">Schedule</button>
+            <button type="button" role="tab" id="t-ws" aria-controls="p-ws" aria-selected="false" tabindex="-1">Workforce / Safety</button>
+          </div>
+          <figure>
+            <div class="ground g-sky">
+              <img class="shot" id="p-ov" role="tabpanel" aria-labelledby="t-ov" src="assets/img/construction-overview.webp" width="1600" height="867" alt="Overview tab: budget 1,200,000, actual cost 175,000, 50 percent complete, one overdue task, 15.5 labour hours, and a budget versus actual chart." loading="lazy">
+              <img class="shot" id="p-co" role="tabpanel" aria-labelledby="t-co" src="assets/img/construction-costs.webp" width="1600" height="867" alt="Costs tab: costs by category chart, a search box and a table of cost entries." loading="lazy" hidden>
+              <img class="shot" id="p-sc" role="tabpanel" aria-labelledby="t-sc" src="assets/img/construction-schedule.webp" width="1600" height="867" alt="Schedule tab: actual versus planned progress, task status, and a task table flagging an overdue task." loading="lazy" hidden>
+              <img class="shot" id="p-ws" role="tabpanel" aria-labelledby="t-ws" src="assets/img/construction-workforce.webp" width="1600" height="867" alt="Workforce and Safety tab: 15.5 recorded labour hours, work logs and one recorded safety incident." loading="lazy" hidden>
+            </div>
+          </figure>
+          <p class="note">Captured from the app running on Linux with its sample project, Tower A.</p>
+        </div>
+        <div class="text">
+          <p class="label">Desktop analytics · Solo · Sep to Oct 2026</p>
+          <h3 id="cd-h">Construction Analytics Dashboard</h3>
+          <p>A Qt6 desktop app that turns raw construction data into four views, so a project manager can see budget overruns and overdue work at a glance. Every CSV import is checked row by row, and saved all or nothing, before it reaches the database.</p>
+          <dl class="specs">
+            <div><dt>Materials</dt><dd>C++20, Qt6, SQLite, CMake, GoogleTest</dd></div>
+            <div><dt>Inside</dt><dd>A hand-drawn QPainter chart, live search and filters, a layered UI, service, analytics and repository design, RAII database access</dd></div>
+            <div><dt>Dimensions</dt><dd>About 4,600 lines · 4 views · AddressSanitizer and UBSan in CI</dd></div>
+          </dl>
+          <div class="cert">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#seal"></use></svg>
+            <p class="lines"><b>Built and run 13 Nov 2026</b><br>CMake · Qt 6.4 · GoogleTest<br>25 of 25 tests passed</p>
+          </div>
+          <div class="links"><a class="more" href="https://github.com/liltaya/Construction-dashboard" target="_blank" rel="noopener">View the code</a></div>
+        </div>
+      </article>
+
+      <article class="piece" id="platform" aria-labelledby="pl-h">
+        <div class="media">
+          <figure>
+            <div class="ground g-stone">
+              <div class="slip" role="img" aria-label="Benchmark output: 1,000,000 rows, 96.77 MiB, analysed in 16.215 seconds at 61,673 lines per second, error rate 9.01 percent, 120 suspicious requests. Example flag: a path traversal request for /../../etc/passwd.">
+                <h4>Benchmark, 13 Nov 2026</h4>
+                <p class="cmd">$ python benchmarks/benchmark_log_analyzer.py --rows 1000000</p>
+                <dl>
+                  <dt>Rows</dt><dd>1,000,000</dd>
+                  <dt>Size</dt><dd>96.77 MiB</dd>
+                  <dt>Analysis time</dt><dd>16.215 s</dd>
+                  <dt>Throughput</dt><dd>61,673 lines/s</dd>
+                  <dt>Error rate</dt><dd>9.01%</dd>
+                  <dt>Suspicious</dt><dd>120</dd>
+                </dl>
+                <hr>
+                <p class="flag">flagged: GET /../../etc/passwd<br>reasons: path_traversal, sensitive_file_probe</p>
               </div>
             </div>
-            <figcaption><span class="fig-no">Fig. 1</span>Stair-climbing robot, ENSC 100 team project at SFU, December 2025. I helped assemble it and wrote the C++ code for its Raspberry Pi.</figcaption>
           </figure>
+          <p class="note">Real output from the analyzer on generated access logs.</p>
         </div>
-
-        <div class="sheet-foot">
-          <div class="notes">
-            <h2 class="label">General notes</h2>
-            <ol>
-              <li>Every project ships with automated tests and CI on Linux.</li>
-              <li>Data is validated before it reaches the database.</li>
-              <li>Architecture and data models are written down.</li>
-            </ol>
+        <div class="text">
+          <p class="label">Backend &amp; operations · Solo · Jul to Aug 2026</p>
+          <h3 id="pl-h">Operational Data Platform &amp; Log Analyzer</h3>
+          <p>A Flask and PostgreSQL API deployed the way production services are: behind Nginx with systemd or in Docker Compose, with health checks and Prometheus metrics for Grafana. Beside it sits a command-line analyzer that reads server logs, reports error rates and flags attacks such as SQL injection and path traversal.</p>
+          <dl class="specs">
+            <div><dt>Materials</dt><dd>Python, Flask, SQLAlchemy, PostgreSQL, Docker, Nginx, Prometheus, Grafana</dd></div>
+            <div><dt>Inside</dt><dd>Input validation, structured JSON errors, an unprivileged service user, reports in text, JSON or CSV</dd></div>
+            <div><dt>Dimensions</dt><dd>38 tests · 4 CI jobs: lint, types, tests, coverage</dd></div>
+          </dl>
+          <div class="cert">
+            <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#seal"></use></svg>
+            <p class="lines"><b>Benchmarked 13 Nov 2026</b><br>1,000,000 generated lines<br>analysed in 16.2 s</p>
           </div>
-          <dl class="titleblock" aria-label="Key facts">
-            <div class="tb-cell tb-wide"><dt>Program</dt><dd>BASc Engineering Science, Simon Fraser University</dd></div>
-            <div class="tb-cell"><dt>CGPA</dt><dd class="tb-num">3.87</dd></div>
-            <div class="tb-cell"><dt>Graduating</dt><dd>May 2029</dd></div>
-            <div class="tb-cell tb-wide tb-key"><dt>Available</dt><dd>Full-time co-op or internship, May to December 2027</dd></div>
-            <div class="tb-cell"><dt>Based in</dt><dd>Burnaby, BC</dd></div>
-            <div class="tb-cell"><dt>Work status</dt><dd>Authorized to work in Canada</dd></div>
+          <div class="links"><a class="more" href="https://github.com/liltaya/Flask-service" target="_blank" rel="noopener">View the code</a></div>
+        </div>
+      </article>
+
+      <article class="piece flip" id="robot" aria-labelledby="rb-h">
+        <div class="media">
+          <figure>
+            <div class="ground g-sage">
+              <div class="vid">
+                <video id="robotVid" src="assets/video/stair-robot.mp4" poster="assets/img/stair-robot-poster.jpg" muted loop playsinline preload="metadata" aria-label="The stair-climbing robot moving its front leg linkage in the SFU engineering lab."></video>
+                <button type="button" id="robotBtn">Play</button>
+              </div>
+            </div>
+          </figure>
+          <p class="note">Filmed in the SFU engineering lab, December 2025.</p>
+        </div>
+        <div class="text">
+          <p class="label">Robotics · Team · ENSC 100 · Dec 2025</p>
+          <h3 id="rb-h">Stair-Climbing Robot</h3>
+          <p>A robot our ENSC 100 team built to climb stairs, with its motors driven by a Raspberry Pi. I helped assemble it and wrote the C++ code that runs on the Pi.</p>
+          <dl class="specs">
+            <div><dt>Materials</dt><dd>C++, Raspberry Pi, motors, a wooden frame and leg linkage</dd></div>
+            <div><dt>My part</dt><dd>Assembly and the Raspberry Pi code</dd></div>
           </dl>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" class="section" aria-labelledby="work-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="work-h">Selected work</h2>
-        <p class="section-note">Four software projects and one robot</p>
-      </div>
-
-      <article class="project" id="buildscope" aria-labelledby="bs-h">
-        <div class="p-meta">
-          <span class="p-detail"><b>A</b>Detail A</span>
-          <p>Oct 2026</p>
-          <span class="status status-live">In progress</span>
-          <p>Solo project</p>
-          <ul class="stack" aria-label="Built with"><li>Python</li><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>SQLite</li><li>C++20</li><li>CMake</li></ul>
-        </div>
-        <div class="p-body">
-          <h3 id="bs-h">BuildScope AI</h3>
-          <p class="p-sum">A local tool for build-pipeline reliability. Register a code repository and BuildScope works out its language, build system and test framework, and shows the files behind each answer.</p>
-          <ul class="p-points">
-            <li>Layered FastAPI service (routes, Pydantic schemas, service, store, SQLAlchemy models) with typed domain errors that map to 404, 409 and 422 responses.</li>
-            <li>Path validation, unique and check constraints, and duplicate detection keep bad records out of the database.</li>
-            <li>Detects setuptools, Poetry, Hatchling, Flit and CMake builds and pytest, GoogleTest and CTest suites, and reads Git state with read-only commands. A C++20 worker library with GoogleTest CI is underway.</li>
-          </ul>
-          <div class="metrics">
-            <div class="m"><span class="m-n">70+</span><span class="m-l">pytest tests: unit, API, integration</span></div>
-            <div class="m"><span class="m-n">5</span><span class="m-l">build systems detected</span></div>
-            <div class="m"><span class="m-n">3</span><span class="m-l">test frameworks detected</span></div>
-          </div>
-          <div class="visual spec" role="list" aria-label="API endpoints">
-            <div class="spec-row" role="listitem"><code><span class="verb">POST</span>/repositories</code><span>Register a local repository</span></div>
-            <div class="spec-row" role="listitem"><code><span class="verb">GET</span>/repositories/{id}</code><span>Fetch one repository and its detected metadata</span></div>
-            <div class="spec-row" role="listitem"><code><span class="verb">POST</span>/repositories/{id}/detect</code><span>Detect language, build system and tests, with evidence</span></div>
-            <div class="spec-row" role="listitem"><code><span class="verb">GET</span>/repositories/{id}/git</code><span>Read branch, commit and HEAD state</span></div>
-          </div>
-          <a class="p-link" href="https://github.com/liltaya/buildscope-ai" target="_blank" rel="noopener">Code on GitHub ↗</a>
-        </div>
       </article>
 
-      <article class="project" id="construction" aria-labelledby="cd-h">
-        <div class="p-meta">
-          <span class="p-detail"><b>B</b>Detail B</span>
-          <p>Sep to Oct 2026</p>
-          <span class="status status-done">Complete</span>
-          <p>Solo project</p>
-          <ul class="stack" aria-label="Built with"><li>C++20</li><li>Qt6</li><li>SQLite</li><li>CMake</li><li>GoogleTest</li><li>GitHub Actions</li></ul>
+      <article class="piece" id="virus" aria-labelledby="vx-h">
+        <div class="media">
+          <figure>
+            <div class="ground g-blush"><svg class="art" viewBox="0 0 220 220" role="img" aria-label="Line drawing of the four computer parts each player defends: CPU, memory, network and storage."><use href="#virus-art"></use></svg></div>
+          </figure>
+          <p class="note">Drawn for this page from the game's design.</p>
         </div>
-        <div class="p-body">
-          <h3 id="cd-h">Construction Analytics Dashboard</h3>
-          <p class="p-sum">A Qt6 desktop app that turns raw construction project data into four views, so a manager can spot budget overruns and overdue work at a glance.</p>
-          <ul class="p-points">
-            <li>Project selector, live search, category and status filters, sortable tables, and a custom QPainter chart with hand-written drawing, scaling and layout math instead of a charting library.</li>
-            <li>CSV import checks headers, field counts, IDs, statuses and budgets, reports errors by row number, and wraps each import in an all-or-nothing SQLite transaction.</li>
-            <li>Layered design: UI, service, analytics, repository, and RAII-managed SQLite. Architecture and data model are documented.</li>
-          </ul>
-          <div class="metrics">
-            <div class="m"><span class="m-n">4,600</span><span class="m-l">lines of C++20, approximately</span></div>
-            <div class="m"><span class="m-n">25</span><span class="m-l">GoogleTest tests</span></div>
-            <div class="m"><span class="m-n">2</span><span class="m-l">CI jobs, one rerunning every test under ASan and UBSan</span></div>
-          </div>
-          <div class="visual shots" data-shots>
-            <div class="shot-tabs" role="tablist" aria-label="Dashboard views">
-              <button type="button" role="tab" id="tab-ov" aria-controls="shot-ov" aria-selected="true">Overview</button>
-              <button type="button" role="tab" id="tab-co" aria-controls="shot-co" aria-selected="false" tabindex="-1">Costs</button>
-              <button type="button" role="tab" id="tab-sc" aria-controls="shot-sc" aria-selected="false" tabindex="-1">Schedule</button>
-              <button type="button" role="tab" id="tab-ws" aria-controls="shot-ws" aria-selected="false" tabindex="-1">Workforce / Safety</button>
-            </div>
-            <div class="shot-frame">
-              <img id="shot-ov" role="tabpanel" aria-labelledby="tab-ov" src="dash-overview.webp" width="1800" height="743" loading="lazy" alt="Overview tab: budget, actual cost, budget variance, completion, overdue tasks and labor hours, above a budget versus actual cost bar chart.">
-              <img id="shot-co" role="tabpanel" aria-labelledby="tab-co" src="dash-costs.webp" width="1800" height="743" loading="lazy" hidden alt="Costs tab: cost by category chart, a search box and category filter, and a sortable table of cost entries.">
-              <img id="shot-sc" role="tabpanel" aria-labelledby="tab-sc" src="dash-schedule.webp" width="1800" height="743" loading="lazy" hidden alt="Schedule tab: actual versus planned progress, task status chart, and a task table that flags overdue work.">
-              <img id="shot-ws" role="tabpanel" aria-labelledby="tab-ws" src="dash-workforce-safety.webp" width="1800" height="743" loading="lazy" hidden alt="Workforce and Safety tab: recorded labor hours and a table of work logs.">
-            </div>
-            <div class="shot-cap"><span>Screenshots from the running app, sample project "Tower A".</span><a href="https://github.com/liltaya/Construction-dashboard/tree/main/docs/screenshots" target="_blank" rel="noopener">Full-size screenshots ↗</a></div>
-          </div>
-          <a class="p-link" href="https://github.com/liltaya/Construction-dashboard" target="_blank" rel="noopener">Code on GitHub ↗</a>
-        </div>
-      </article>
-
-      <article class="project" id="ops-platform" aria-labelledby="op-h">
-        <div class="p-meta">
-          <span class="p-detail"><b>C</b>Detail C</span>
-          <p>Jul to Aug 2026</p>
-          <span class="status status-done">Complete</span>
-          <p>Solo project</p>
-          <ul class="stack" aria-label="Built with"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>Docker</li><li>Nginx</li><li>systemd</li><li>Prometheus</li><li>Grafana</li></ul>
-        </div>
-        <div class="p-body">
-          <h3 id="op-h">Operational Data Platform and Log Analyzer</h3>
-          <p class="p-sum">A REST API deployed the way production services are, with health checks and live metrics, plus a command-line tool that reads server logs and flags trouble.</p>
-          <ul class="p-points">
-            <li>Flask, SQLAlchemy and PostgreSQL API with input validation, structured JSON errors, health checks, and Prometheus metrics feeding Grafana dashboards.</li>
-            <li>Deployed on Linux behind Nginx, run by systemd or Docker Compose, as an unprivileged user with credentials kept out of Git.</li>
-            <li>Log analyzer built with dataclasses and type hints. Reports error rates, malformed lines and suspicious requests (path traversal, SQL injection, scanners) as text, JSON or CSV.</li>
-          </ul>
-          <div class="metrics">
-            <div class="m"><span class="m-n">1M</span><span class="m-l">log records in the benchmark</span></div>
-            <div class="m"><span class="m-n">38</span><span class="m-l">pytest tests</span></div>
-            <div class="m"><span class="m-n">4</span><span class="m-l">CI jobs: Ruff, mypy, tests, coverage</span></div>
-          </div>
-          <div class="visual flow" aria-label="How a request travels, and how it is monitored">
-            <div class="flow-row"><span class="flow-tag">Request path</span><span class="node">Client</span><span class="arr" aria-hidden="true">→</span><span class="node">Nginx</span><span class="arr" aria-hidden="true">→</span><span class="node node-key">Flask API<small>systemd or Docker Compose</small></span><span class="arr" aria-hidden="true">→</span><span class="node">PostgreSQL</span></div>
-            <div class="flow-row"><span class="flow-tag">Monitoring</span><span class="node node-key">/metrics</span><span class="arr" aria-hidden="true">→</span><span class="node">Prometheus</span><span class="arr" aria-hidden="true">→</span><span class="node">Grafana</span></div>
-          </div>
-          <a class="p-link" href="https://github.com/liltaya/Flask-service" target="_blank" rel="noopener">Code on GitHub ↗</a>
-        </div>
-      </article>
-
-      <article class="project" id="virus-exe" aria-labelledby="vx-h">
-        <div class="p-meta">
-          <span class="p-detail"><b>D</b>Detail D</span>
-          <p>Fall 2026</p>
-          <span class="status status-live">In progress</span>
-          <p>SFU team course project</p>
-          <ul class="stack" aria-label="Built with"><li>C++</li><li>Object-oriented design</li></ul>
-        </div>
-        <div class="p-body">
-          <h3 id="vx-h">Virus.exe Card Game</h3>
-          <p class="p-sum">A two-player strategy card game. Each player defends a computer made of four systems, and the first to destroy three of the opponent's four wins.</p>
-          <ul class="p-points">
-            <li>Proposed the concept to my team and designed the rules.</li>
-            <li>Designed the C++ object model that maps a standard 52-card deck to attacks, repairs and face-card abilities such as firewall bypass, antivirus block and zero-day attacks.</li>
-          </ul>
-          <div class="visual">
-            <div class="systems" aria-label="Example end state: three of four systems destroyed">
-              <div class="sys down">CPU</div>
-              <div class="sys">Memory</div>
-              <div class="sys down">Network</div>
-              <div class="sys down">Storage</div>
-            </div>
-            <p class="sys-cap">Three systems down, so this computer has lost.</p>
-            <p class="classes"><span>My classes:</span><code>Card</code><code>Deck</code><code>Player</code><code>ComputerSystem</code></p>
-          </div>
-        </div>
-      </article>
-
-      <article class="project" id="stair-robot" aria-labelledby="sr-h">
-        <div class="p-meta">
-          <span class="p-detail"><b>E</b>Detail E</span>
-          <p>Dec 2025</p>
-          <span class="status status-done">Demonstrated</span>
-          <p>ENSC 100 team project</p>
-          <ul class="stack" aria-label="Built with"><li>C++</li><li>Raspberry Pi</li><li>Motors</li></ul>
-        </div>
-        <div class="p-body">
-          <h3 id="sr-h">Stair-Climbing Robot</h3>
-          <p class="p-sum">A robot our team built to climb stairs, with its motors controlled by a Raspberry Pi. It is the clip in Fig. 1 at the top of this page.</p>
-          <ul class="p-points">
-            <li>Helped assemble the robot.</li>
-            <li>Wrote the C++ code that runs on the Raspberry Pi.</li>
-          </ul>
-          <dl class="visual kv">
-            <div><dt>Course</dt><dd>ENSC 100, SFU</dd></div>
-            <div><dt>Controller</dt><dd>Raspberry Pi</dd></div>
-            <div><dt>My code</dt><dd>C++</dd></div>
-            <div><dt>My role</dt><dd>Assembly and code</dd></div>
+        <div class="text">
+          <p class="label">Game · Team of four · ENSC 251 · Fall 2026</p>
+          <h3 id="vx-h">Virus.exe</h3>
+          <p>A two-player strategy card game for Software Design and Analysis for Engineers. Each player defends a computer made of four parts, CPU, memory, network and storage, using an ordinary 52-card deck for attacks, repairs and special moves like a firewall bypass or a zero-day attack. The first to take out three of the other player's four parts wins.</p>
+          <dl class="specs">
+            <div><dt>Materials</dt><dd>C++, object-oriented design</dd></div>
+            <div><dt>My part</dt><dd>Proposed the concept and rules, designed the class model, set up the team's repository</dd></div>
+            <div><dt>Status</dt><dd>In progress; the team is assembling the game classes this term</dd></div>
           </dl>
-          <a class="p-link" href="#top">Watch Fig. 1 ↑</a>
+          <div class="links"><a class="more" href="https://github.com/liltaya/virus-exe" target="_blank" rel="noopener">View the code</a></div>
         </div>
       </article>
     </div>
   </section>
 
-  <section id="path" class="section" aria-labelledby="path-h">
+  <section class="section" id="about" aria-labelledby="ab-h">
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="path-h">Path</h2>
-        <p class="section-note">Kept like a drawing's revision table, oldest first</p>
+      <div class="head"><p class="label">About</p><h2 id="ab-h">The engineer <em>behind the work</em></h2></div>
+      <div class="about">
+        <p class="intro">I am an Engineering Science student at Simon Fraser University. Before engineering, I spent seven months as a company's branding specialist, designing its logo, business cards and website, so <em>I care how a tool looks and feels</em> as much as whether it works.</p>
+        <dl class="facts">
+          <div><dt>Program</dt><dd>BASc Engineering Science, SFU</dd></div>
+          <div><dt>CGPA</dt><dd>3.87</dd></div>
+          <div><dt>Graduating</dt><dd>May 2029</dd></div>
+          <div><dt>Available</dt><dd class="hl">Full-time co-op, December 2026 to August 2027</dd></div>
+          <div><dt>Based in</dt><dd>Burnaby, British Columbia</dd></div>
+          <div><dt>Work status</dt><dd>Authorized to work in Canada</dd></div>
+        </dl>
       </div>
-      <div class="origin">
-        <p class="label">Before Rev A</p>
-        <p>It started with games. I grew up playing EA SPORTS FIFA and The Sims and wanted to know how they were built. Later I made a small game for children who struggle with concentration, watched them play, noted what confused them, and changed it.</p>
-      </div>
-      <div class="rev-wrap">
-        <table class="rev">
-          <thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Description</th><th scope="col" style="text-align:right">Ref</th></tr></thead>
-          <tbody>
-            <tr><td class="r-rev">A</td><td class="r-date">Jan to Jul 2025</td><td class="r-desc"><strong>Branding Specialist, PlotUp Inc.</strong> Owned the company's visual identity: logo, business cards and the Wix website. Turned stakeholder feedback into site updates and delivered on schedule.</td><td class="r-ref"></td></tr>
-            <tr><td class="r-rev">B</td><td class="r-date">Sep to Dec 2025</td><td class="r-desc"><strong>Boeing 737 software assurance research, SFU.</strong> A report on how safety-critical aircraft software is verified and validated.</td><td class="r-ref"></td></tr>
-            <tr><td class="r-rev">C</td><td class="r-date">Dec 2025</td><td class="r-desc"><strong>Stair-climbing robot, ENSC 100.</strong> Assembly and the Raspberry Pi C++ code.</td><td class="r-ref"><a href="#stair-robot">Detail E</a></td></tr>
-            <tr><td class="r-rev">D</td><td class="r-date">Jan to May 2026</td><td class="r-desc"><strong>MATLAB engineering analysis, SFU.</strong> Modeled engineering scenarios, automated the calculations and validated the results.</td><td class="r-ref"></td></tr>
-            <tr><td class="r-rev">E</td><td class="r-date">Jul to Aug 2026</td><td class="r-desc"><strong>Operational Data Platform and Log Analyzer.</strong> Python API deployed on Linux, with monitoring.</td><td class="r-ref"><a href="#ops-platform">Detail C</a></td></tr>
-            <tr><td class="r-rev">F</td><td class="r-date">Sep to Oct 2026</td><td class="r-desc"><strong>Construction Analytics Dashboard.</strong> Qt6 desktop app in C++20.</td><td class="r-ref"><a href="#construction">Detail B</a></td></tr>
-            <tr><td class="r-rev">G</td><td class="r-date">Fall 2026</td><td class="r-desc"><strong>Virus.exe card game.</strong> SFU team project, in progress.</td><td class="r-ref"><a href="#virus-exe">Detail D</a></td></tr>
-            <tr><td class="r-rev">H</td><td class="r-date">Oct 2026</td><td class="r-desc"><strong>BuildScope AI.</strong> In progress.</td><td class="r-ref"><a href="#buildscope">Detail A</a></td></tr>
-            <tr class="next"><td class="r-rev">Next</td><td class="r-date">December to Aug 2027</td><td class="r-desc"><strong>Open to a full-time software co-op or internship.</strong></td><td class="r-ref"><a href="#contact">Contact</a></td></tr>
-            <tr class="next"><td class="r-rev"></td><td class="r-date">May 2029</td><td class="r-desc">Expected graduation, BASc Engineering Science.</td><td class="r-ref"></td></tr>
-          </tbody>
-        </table>
+      <div class="rules">
+        <div><h4>Tested before it ships.</h4><p>Every solo project runs its tests in CI on every change, from 25 GoogleTest cases to 706 pytest cases.</p></div>
+        <div><h4>Checked before it is saved.</h4><p>Imports are validated row by row, and bad data is rejected with a reason before it reaches a database.</p></div>
+        <div><h4>Written down.</h4><p>Architecture notes, data models and release guides live next to the code, so the next person can find their way.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="toolkit" class="section" aria-labelledby="tk-h">
+  <section class="section" id="path" aria-labelledby="pa-h">
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="tk-h">Toolkit</h2>
-        <p class="section-note">Used in the projects above</p>
+      <div class="head"><p class="label">Path</p><h2 id="pa-h">So far, <em>and next</em></h2></div>
+      <div class="years">
+        <div class="year"><b>2025</b><ul>
+          <li><span>Jan to Jul</span><div>Branding Specialist, PlotUp Inc.: logo, business cards and the company website</div></li>
+          <li><span>Sep to Dec</span><div>Boeing 737 software assurance research at SFU: how safety-critical aircraft software is verified and validated</div></li>
+          <li><span>Dec</span><div><a href="#robot">Stair-climbing robot</a>, ENSC 100 team</div></li>
+        </ul></div>
+        <div class="year"><b>2026</b><ul>
+          <li><span>Jan to May</span><div>MATLAB engineering analysis: modelling scenarios and validating results</div></li>
+          <li><span>Jul to Aug</span><div><a href="#platform">Operational Data Platform &amp; Log Analyzer</a></div></li>
+          <li><span>Sep to Oct</span><div><a href="#construction">Construction Analytics Dashboard</a></div></li>
+          <li><span>Oct to Nov</span><div><a href="#buildscope">BuildScope</a>, released as v0.1.0</div></li>
+          <li><span>Fall</span><div><a href="#virus">Virus.exe</a> with my ENSC 251 team</div></li>
+        </ul></div>
+        <div class="year next"><b>2027</b><ul>
+          <li><span>Dec 2026 to Aug 2027</span><div>Available for a full-time software or engineering co-op</div></li>
+        </ul></div>
+        <div class="year"><b>2029</b><ul>
+          <li><span>May</span><div>Graduation, BASc Engineering Science</div></li>
+        </ul></div>
       </div>
-      <dl class="tools">
-        <div class="tool"><dt>Languages</dt><dd>Python, C++ (C++17 and C++20), SQL, Java, MATLAB, Bash</dd></div>
-        <div class="tool"><dt>UI and APIs</dt><dd>Qt6 Widgets, custom QPainter widgets, FastAPI, Pydantic, Flask, command-line tools</dd></div>
-        <div class="tool"><dt>Software design</dt><dd>Object-oriented design (C++, Python dataclasses, SQLAlchemy ORM), RAII, layered architecture, data validation</dd></div>
-        <div class="tool"><dt>Testing</dt><dd>GoogleTest, CTest, pytest, coverage, AddressSanitizer, UBSan, mypy, Ruff, strict warnings</dd></div>
-        <div class="tool"><dt>Git and Linux</dt><dd>Git and GitHub (feature branches, pull requests), GitHub Actions CI, Ubuntu, Bash, systemd, Nginx, Docker</dd></div>
-        <div class="tool"><dt>Data</dt><dd>SQLite, PostgreSQL, SQLAlchemy 2.0, CSV and JSON processing, Prometheus, Grafana</dd></div>
-        <div class="tool"><dt>Hardware</dt><dd>Raspberry Pi, motors, hands-on assembly</dd></div>
-        <div class="tool"><dt>Design</dt><dd>Logo and brand identity, print materials, Wix websites</dd></div>
-      </dl>
     </div>
   </section>
 
-  <section id="contact" class="section" aria-labelledby="ct-h">
+  <section class="contact" id="contact" aria-labelledby="ct-h">
     <div class="wrap">
-      <div class="contact-card">
-        <p class="label">Contact</p>
-        <h2 id="ct-h">Hiring for December to August 2027?</h2>
-        <p class="blurb">I'm looking for a full-time software co-op or internship. Email is the fastest way to reach me.</p>
-        <div class="email-row">
-          <a class="email" id="emailAddr" href="mailto:tma133@sfu.ca">tma133@sfu.ca</a>
-          <button type="button" class="btn btn-ghost btn-small" id="copyEmail">Copy address</button>
-          <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
-        </div>
-        <ul class="links">
-          <li><a class="btn btn-ghost btn-small" href="https://www.linkedin.com/in/taya-mamenko-2978b4323" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-          <li><a class="btn btn-ghost btn-small" href="https://github.com/liltaya" target="_blank" rel="noopener">GitHub ↗</a></li>
-          <li><a class="btn btn-ghost btn-small" href="Taisiia_Mamenko_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a></li>
-        </ul>
+      <p class="label">Contact</p>
+      <h2 id="ct-h">Available December 2026 to August 2027</h2>
+      <p>I am looking for a full-time software or engineering co-op. Email is the fastest way to reach me.</p>
+      <a class="email" id="emailAddr" href="mailto:tma133@sfu.ca">tma133@sfu.ca</a>
+      <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+      <div class="links">
+        <button type="button" class="more" id="copyEmail" style="background:none;cursor:pointer;color:var(--ink)">Copy email</button>
+        <a class="more" href="https://www.linkedin.com/in/taya-mamenko-2978b4323" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="more" href="https://github.com/liltaya" target="_blank" rel="noopener">GitHub</a>
+        <a class="more" href="Taisiia_Mamenko_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <span>Taisiia Mamenko · Burnaby, BC</span>
-    <span>Rev H · Updated October 2026</span>
+<footer>
+  <div class="wrap foot">
+    <span>Taisiia Mamenko · Burnaby, British Columbia</span>
+    <span>Software projects run and photographed 13 November 2026</span>
   </div>
 </footer>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="seal" viewBox="0 0 100 100">
+      <path id="sealArc" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" fill="none"/>
+      <circle cx="50" cy="50" r="47" fill="none" stroke="#A9420A" stroke-width="1.5"/>
+      <circle cx="50" cy="50" r="27" fill="#EE6A1F"/>
+      <text font-family="Jost,Futura,sans-serif" font-size="9.5" font-weight="500" letter-spacing="2.6" fill="#A9420A"><textPath href="#sealArc">TESTED · WORKING · TESTED · WORKING ·</textPath></text>
+      <path d="M38 50.5 l8 8 l16 -17" fill="none" stroke="#1E1915" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="virus-art" viewBox="0 0 220 220">
+      <g fill="none" stroke="#A9420A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="40" y="22" width="140" height="176" rx="12" transform="rotate(-6 110 110)" stroke="#1E1915" stroke-width="1.6"/>
+        <rect x="64" y="44" width="40" height="40" rx="3"/>
+        <rect x="74" y="54" width="20" height="20" rx="1.5"/>
+        <path d="M70 44v-7M80 44v-7M90 44v-7M98 44v-7M70 84v7M80 84v7M90 84v7M98 84v7M64 52h-7M64 64h-7M64 76h-7M104 52h7M104 64h7M104 76h7"/>
+        <rect x="120" y="54" width="48" height="22" rx="2"/>
+        <path d="M127 61h8v8h-8zM141 61h8v8h-8zM155 61h8v8h-8zM124 76v5M134 76v5M144 76v5M154 76v5M164 76v5"/>
+        <circle cx="84" cy="140" r="20"/>
+        <path d="M64 140h40M84 120c-8 6 -8 34 0 40M84 120c8 6 8 34 0 40"/>
+        <ellipse cx="144" cy="126" rx="20" ry="7"/>
+        <path d="M124 126v28c0 4 9 7 20 7s20 -3 20 -7v-28M124 140c0 4 9 7 20 7s20 -3 20 -7"/>
+      </g>
+      <g font-family="Jost,Futura,sans-serif" font-size="8" font-weight="500" letter-spacing="1" fill="#1E1915" text-anchor="middle">
+        <text x="84" y="104">CPU</text><text x="144" y="96">MEMORY</text><text x="84" y="176">NETWORK</text><text x="144" y="176">STORAGE</text>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
 <script>
 (function(){
-  /* Fig. 1 video: plays muted on loop unless the viewer prefers reduced motion */
-  var v=document.getElementById('robot'), t=document.getElementById('robotToggle');
-  if(v&&t){
-    var reduce=false;
-    try{reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
-    var sync=function(){t.textContent=v.paused?'Play':'Pause';t.setAttribute('aria-label',(v.paused?'Play':'Pause')+' Fig. 1 video');};
+  var reduce=false;
+  try{reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+
+  // Robot video: muted loop, paused for reduced motion
+  var v=document.getElementById('robotVid'), b=document.getElementById('robotBtn');
+  if(v&&b){
+    var sync=function(){b.textContent=v.paused?'Play':'Pause';b.setAttribute('aria-label',(v.paused?'Play':'Pause')+' robot video');};
     v.addEventListener('play',sync);v.addEventListener('pause',sync);
-    t.addEventListener('click',function(){if(v.paused){var p=v.play();if(p&&p.catch)p.catch(sync);}else{v.pause();}});
-    if(!reduce){var p=v.play();if(p&&p.catch)p.catch(sync);}
+    b.addEventListener('click',function(){if(v.paused){var p=v.play();if(p&&p.catch)p.catch(sync);}else{v.pause();}});
+    if(!reduce&&'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(sync);}else{v.pause();}});},{threshold:.4}).observe(v);
+    }
     sync();
   }
 
-  /* Dashboard screenshot tabs */
-  document.querySelectorAll('[data-shots]').forEach(function(box){
-    var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));
-    function select(tab,focus){
-      tabs.forEach(function(x){
-        var on=x===tab;
-        x.setAttribute('aria-selected',on?'true':'false');
-        x.tabIndex=on?0:-1;
-        var panel=document.getElementById(x.getAttribute('aria-controls'));
-        if(panel){panel.hidden=!on;}
-      });
-      if(focus){tab.focus();}
-    }
-    tabs.forEach(function(tab,i){
-      tab.addEventListener('click',function(){select(tab,false);});
-      tab.addEventListener('keydown',function(e){
-        var k=e.key,n=null;
-        if(k==='ArrowRight'){n=tabs[(i+1)%tabs.length];}
-        else if(k==='ArrowLeft'){n=tabs[(i-1+tabs.length)%tabs.length];}
-        else if(k==='Home'){n=tabs[0];}
-        else if(k==='End'){n=tabs[tabs.length-1];}
-        if(n){e.preventDefault();select(n,true);}
-      });
-    });
+  // Construction tabs
+  var tabs=[].slice.call(document.querySelectorAll('#construction [role="tab"]'));
+  function sel(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(focus)t.focus();}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(t);});
+    t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();sel(n,true);}});
   });
 
-  /* Copy email */
-  var c=document.getElementById('copyEmail'), s=document.getElementById('copyStatus'), a=document.getElementById('emailAddr');
-  if(c&&s&&a){
-    var fallback=function(){
-      try{var r=document.createRange();r.selectNodeContents(a);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);}catch(e){}
-      s.textContent='Selected. Press Ctrl+C or Cmd+C to copy.';
-    };
-    c.addEventListener('click',function(){
-      try{
-        navigator.clipboard.writeText('tma133@sfu.ca').then(function(){s.textContent='Copied to clipboard';},fallback);
-      }catch(e){fallback();}
-    });
-  }
+  // Collection rail arrows
+  var rail=document.getElementById('rail');
+  function step(dir){var c=rail.querySelector('.card');var w=c?c.getBoundingClientRect().width+18:280;rail.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'});}
+  var pv=document.getElementById('railPrev'), nx=document.getElementById('railNext');
+  if(pv)pv.addEventListener('click',function(){step(-1);});
+  if(nx)nx.addEventListener('click',function(){step(1);});
+
+  // Copy email
+  var cb=document.getElementById('copyEmail'), st=document.getElementById('copyStatus'), a=document.getElementById('emailAddr');
+  if(cb){cb.addEventListener('click',function(){
+    var fb=function(){try{var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}st.textContent='Selected. Press Ctrl+C or Cmd+C to copy.';};
+    try{navigator.clipboard.writeText('tma133@sfu.ca').then(function(){st.textContent='Email copied.';},fb);}catch(e){fb();}
+  });}
 })();
 </script>
-
 </body>
 </html>
