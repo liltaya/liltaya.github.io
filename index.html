@@ -158,6 +158,10 @@ a{color:inherit}
 .details figcaption{font-size:13px;color:var(--ink-2);line-height:1.45}
 @media (max-width:900px){.details{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+.ground.stage{aspect-ratio:16/11;padding:clamp(12px,2.6vw,32px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage>img{width:auto;height:auto;max-width:100%;max-height:100%}
+.stage .term{background:transparent;box-shadow:0 40px 70px -36px rgba(30,25,21,.55)}
+.stage>[role="tabpanel"]:not(img){width:100%}
 .tabs{display:flex;flex-wrap:wrap;gap:4px 22px;margin:0 0 14px}
 .tabs button{appearance:none;background:none;border:0;border-bottom:1px solid transparent;padding:6px 0;font:500 11.5px/1.3 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);cursor:pointer}
 .tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
@@ -272,7 +276,7 @@ footer{padding-block:28px 40px}
             <div class="meta"><b>Construction Dashboard</b><span>Desktop analytics · 2026</span></div>
           </a>
           <a class="card" href="#platform">
-            <div class="ground g-stone"><div class="typo"><small>1,000,000 lines</small><strong>in 16.2 s</strong><small>log analyzer</small></div></div>
+            <div class="ground g-stone"><img src="assets/img/platform-traffic.webp" width="1600" height="964" alt="" style="border-radius:3px;box-shadow:0 18px 30px -18px rgba(30,25,21,.6)"></div>
             <div class="meta"><b>Data Platform</b><span>Backend &amp; operations · 2026</span></div>
           </a>
           <a class="card" href="#robot">
@@ -358,8 +362,20 @@ footer{padding-block:28px 40px}
 
       <article class="piece" id="platform" aria-labelledby="pl-h">
         <div class="media">
+          <div class="tabs" role="tablist" aria-label="Platform views">
+            <button type="button" role="tab" id="t-pt" aria-controls="p-pt" aria-selected="true">Live traffic</button>
+            <button type="button" role="tab" id="t-pi" aria-controls="p-pi" aria-selected="false" tabindex="-1">API</button>
+            <button type="button" role="tab" id="t-pa" aria-controls="p-pa" aria-selected="false" tabindex="-1">Alerts</button>
+            <button type="button" role="tab" id="t-pl" aria-controls="p-pl" aria-selected="false" tabindex="-1">Log report</button>
+            <button type="button" role="tab" id="t-pb" aria-controls="p-pb" aria-selected="false" tabindex="-1">Benchmark</button>
+          </div>
           <figure>
-            <div class="ground g-stone">
+            <div class="ground g-stone stage">
+              <img class="shot" id="p-pt" role="tabpanel" aria-labelledby="t-pt" src="assets/img/platform-traffic.webp" width="1600" height="964" alt="Prometheus graph of requests per second by status code over nine minutes of mixed traffic: mostly 200s peaking near 7 per second, with smaller lines for 201, 400, 404 and 415." loading="lazy">
+              <img class="shot term" id="p-pi" role="tabpanel" aria-labelledby="t-pi" src="assets/img/platform-api.webp" width="1600" height="996" alt="Terminal session through Nginx: the health check returns database connected, an item is created, empty and non-JSON input get 400 and 415, a missing item gets 404, and the request counters appear on the metrics endpoint." loading="lazy" hidden>
+              <img class="shot" id="p-pa" role="tabpanel" aria-labelledby="t-pa" src="assets/img/platform-alerts.webp" width="1600" height="483" alt="Prometheus alerts page: the four application alert rules, service down, not ready, high error rate and high latency, all inactive." loading="lazy" hidden>
+              <img class="shot term" id="p-pl" role="tabpanel" aria-labelledby="t-pl" src="assets/img/platform-report.webp" width="1600" height="1218" alt="Log analyzer report on the Nginx access log: 3,239 requests, 8.43 percent errors, and six flagged requests for path traversal, a .env probe, SQL injection, a scanner user agent and XSS." loading="lazy" hidden>
+              <div id="p-pb" role="tabpanel" aria-labelledby="t-pb" hidden>
               <div class="slip" role="img" aria-label="Benchmark output: 1,000,000 rows, 96.77 MiB, analysed in 16.215 seconds at 61,673 lines per second, error rate 9.01 percent, 120 suspicious requests. Example flag: a path traversal request for /../../etc/passwd.">
                 <h4>Benchmark, 13 Nov 2026</h4>
                 <p class="cmd">$ python benchmarks/benchmark_log_analyzer.py --rows 1000000</p>
@@ -374,9 +390,10 @@ footer{padding-block:28px 40px}
                 <hr>
                 <p class="flag">flagged: GET /../../etc/passwd<br>reasons: path_traversal, sensitive_file_probe</p>
               </div>
+              </div>
             </div>
           </figure>
-          <p class="note">Real output from the analyzer on generated access logs.</p>
+          <p class="note">Captured on 13 Nov 2026 from the API running behind Nginx with PostgreSQL, while Prometheus scraped it under nine minutes of mixed traffic.</p>
         </div>
         <div class="text">
           <p class="label">Backend &amp; operations · Solo · Jul to Aug 2026</p>
@@ -385,7 +402,7 @@ footer{padding-block:28px 40px}
           <dl class="specs">
             <div><dt>Materials</dt><dd>Python, Flask, SQLAlchemy, PostgreSQL, Docker, Nginx, Prometheus, Grafana</dd></div>
             <div><dt>Inside</dt><dd>Input validation, structured JSON errors, an unprivileged service user, reports in text, JSON or CSV</dd></div>
-            <div><dt>Dimensions</dt><dd>38 tests · 4 CI jobs: lint, types, tests, coverage</dd></div>
+            <div><dt>Dimensions</dt><dd>38 tests, 93% coverage · 4 CI jobs: lint, types, tests, coverage</dd></div>
           </dl>
           <div class="cert">
             <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#seal"></use></svg>
@@ -558,12 +575,14 @@ footer{padding-block:28px 40px}
     sync();
   }
 
-  // Construction tabs
-  var tabs=[].slice.call(document.querySelectorAll('#construction [role="tab"]'));
-  function sel(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(focus)t.focus();}
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){sel(t);});
-    t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();sel(n,true);}});
+  // Tabs (Construction and Platform)
+  [].forEach.call(document.querySelectorAll('[role="tablist"]'),function(list){
+    var tabs=[].slice.call(list.querySelectorAll('[role="tab"]'));
+    function sel(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(focus)t.focus();}
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(t);});
+      t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();sel(n,true);}});
+    });
   });
 
   // Collection rail arrows
