@@ -184,12 +184,12 @@ function buildscope() {
 function construction() {
   const g = new THREE.Group();
   g.add(box(5, 0.14, 3.5, C.bone, 0, 0.07, 0));
-  const floors = [];
+  const floors = [], tower = new THREE.Group(); tower.position.set(-0.85, 0.14, -0.1); g.add(tower);
   for (let i = 0; i < 5; i++) {
-    const f = new THREE.Group(); f.position.set(-0.85, 0.14 + i * 0.58, -0.1);
+    const f = new THREE.Group(); f.position.y = i * 0.58;
     f.add(box(2.3, 0.08, 1.7, C.bone, 0, 0.54, 0));
     for (const x of [-1.05, 0, 1.05]) for (const z of [-0.75, 0.75]) f.add(box(0.09, 0.5, 0.09, C.steel, x, 0.25, z, false));
-    g.add(f); floors.push(f);
+    tower.add(f); floors.push(f);
   }
   const crane = new THREE.Group(); crane.position.set(1.85, 0.14, -1.1); g.add(crane);
   crane.add(box(0.5, 0.12, 0.5, C.ink, 0, 0.06, 0));
@@ -217,10 +217,11 @@ function construction() {
   function update(t) {
     const p = (t % 11) / 11, built = p * 7.2, sink = ease(clamp01((p - 0.9) / 0.1));
     floors.forEach((f, i) => {
-      const k = ease(clamp01(built - i)) * (1 - sink);
+      const k = ease(clamp01(built - i));
       f.visible = k > 0.002; f.scale.set(1, Math.max(k, 0.002), 1);
     });
     const w = (t / 11) * Math.PI * 2;
+    tower.scale.y = Math.max(1 - sink, 0.002); tower.visible = sink < 0.995;
     jib.rotation.y = Math.sin(w) * 0.55 + 0.25;
     trolley.position.x = -1.7 + Math.sin(w * 2) * 1.0;
     const drop = 1.3 + Math.sin(w * 2 + 1) * 0.55;
