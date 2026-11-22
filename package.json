@@ -1,0 +1,13 @@
+{
+  "name": "liltaya.github.io",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --minify --format=esm --target=es2020 --legal-comments=eof --outfile=assets/js/site.js"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

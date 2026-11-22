@@ -1,7 +1,6 @@
-Fonts served with this site. All are licensed under the SIL Open Font License 1.1 (https://openfontlicense.org).
+# Fonts
 
-- Bodoni Moda by Owen Earl (indestructible type*)
-- Jost by Owen Earl (indestructible type*)
-- IBM Plex Mono by IBM
+Self-hosted variable fonts, both under the SIL Open Font License 1.1.
 
-Files come from the Fontsource packages (latin subset).
+- `big-shoulders.woff2`: Big Shoulders, by Patric King
+- `instrument-sans.woff2`: Instrument Sans, by Rodrigo Fuenzalida and Jordan Egstad
